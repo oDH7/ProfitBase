@@ -6,6 +6,7 @@ import React, { useState } from "react";
 
 // Import Componentes
 import TxtInputComponent from "../components/TxtInputComponent";
+import TextProps from "../components/TextProps";
 import { TextInput } from "react-native-web";
 
 export default function CalcCripto() {
@@ -42,7 +43,11 @@ export default function CalcCripto() {
 
   return (
     <View style={styles.container}>
-      <Text>Calcular ganhos/perdas</Text>
+      <TextProps
+        TextStyle={[styles.label, { color: `${mudarcortexto}` }]}
+        Texto={"Álcool (preço por litro):"}
+      />
+      <TextProps>Calcular ganhos/perdas</TextProps>
       <TxtInputComponent
         txtplace="Preço de compra"
         value={valordecompra}
@@ -80,7 +85,7 @@ export default function CalcCripto() {
         <View>
           <Text>Modal</Text>
           <TouchableOpacity onPress={calcularNovamente}>
-            <Text>Fechar</Text>
+            <TextProps>Fechar</TextProps>
           </TouchableOpacity>
           <Text>Ganhos/Perdas :R${resultado}</Text>
         </View>

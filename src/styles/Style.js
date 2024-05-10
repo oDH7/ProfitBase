@@ -49,4 +49,10 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 50,
   },
+  input: {
+    margin: 20,
+    backgroundColor: "orange",
+    fontSize: 10,
+    borderWidth: 1,
+  },
 });

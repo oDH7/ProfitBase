@@ -1,7 +1,5 @@
-import { TextInput } from "react-native";
+import { Text } from "react-native";
 
-export default function TextProps({ txtplace, changeText, value }) {
-  return (
-    <TextInput placeholder={txtplace} value={value} onChangeText={changeText} />
-  );
+export default function TextProps({ Texto, TextStyle }) {
+  return <Text style={TextStyle}> {Texto}</Text>;
 }
