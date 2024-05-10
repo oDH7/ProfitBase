@@ -18,6 +18,8 @@ export default function Sobre() {
           resizeMode="contain"
           style={styles.profitbase}
         />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.touch} onPress={() => alert("Logo")}>
         <Text>Sobre a Profit Base </Text>
       </TouchableOpacity>
       <TxtComponent title="Sobre" />
@@ -28,7 +30,10 @@ export default function Sobre() {
         seus ganhos e tome decisões informadas para maximizar seus retornos.
         Simplifique sua experiência de investimento com o Profit Base.
       </Text>
-
+      <Image
+        source={{ uri: "https://picjj.com/images/2024/05/10/Fz9BQ.png" }}
+        style={styles.celularimg}
+      />
       <TouchableOpacity
         style={styles.button1}
         onPress={() => navigation.navigate("CalcCripto")}
