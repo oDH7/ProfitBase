@@ -1,13 +1,12 @@
 import { View, TouchableOpacity, Text, Image } from "react-native";
 import { styles } from "../styles/Style";
+import { AntDesign } from "@expo/vector-icons";
 
 // Import Componentes
 import TxtComponent from "../components/TextProps";
 
 // Import Hook useNavigation
 import { useNavigation } from "@react-navigation/native";
-
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function Sobre() {
   const navigation = useNavigation();
@@ -36,6 +35,7 @@ export default function Sobre() {
       >
         <Text style={styles.buttonText}>Calcular Crypto</Text>
       </TouchableOpacity>
+      <AntDesign name="checkcircle" size={24} color="black" />
       <Text>Informações Autênticas</Text>
       <Text>Dados reais e atualizados com base nos valores de mercado.</Text>
     </View>

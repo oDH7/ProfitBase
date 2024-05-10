@@ -55,7 +55,7 @@ export default function CalcCripto() {
       />
 
       <TxtInputComponent
-        txtplace="Preçp de venda"
+        txtplace="Preço de venda"
         value={valordevenda}
         changeText={setValordevenda}
       />
