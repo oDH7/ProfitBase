@@ -73,5 +73,5 @@ export const styles = StyleSheet.create({
     height: 300,
     resizeMode: "contain", // ajusta a imagem dentro do tamanho proposto
   },
-  sobretext:,
+  sobretext: {},
 });
