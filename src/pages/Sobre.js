@@ -53,6 +53,9 @@ export default function Sobre() {
             Informações Autênticas e dados reais atualizados com base nos
             valores de mercado.
           </Text>
+          <Text style={styles.sobretext}>
+            Seus dados e informações estão seguros.
+          </Text>
         </View>
       </ScrollView>
     </View>

@@ -4,8 +4,6 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFD7A9",
-    justifyContent: "center",
-    alignItems: "center",
     paddingTop: "30%",
   },
   telas: {
@@ -60,6 +58,7 @@ export const styles = StyleSheet.create({
   },
   input: {
     margin: 20,
+    width: "30%",
     backgroundColor: "orange",
     borderColor: "white",
     fontSize: 10,
@@ -76,6 +75,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     marginLeft: 20,
     marginTop: 15,
+    color: "black",
   },
   icone: {
     marginTop: 20,
