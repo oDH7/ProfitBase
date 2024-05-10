@@ -15,23 +15,17 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 0, // Adiciona margem acima da imagem do header
   },
   button1: {
     backgroundColor: "#FF8800",
-    alignItems: "center",
-    justifyContent: "center",
     borderRadius: 10,
     padding: 10,
     marginTop: 30, // Adiciona margem entre os botões do menu
     color: "white",
-    width: 150,
   },
   buttonText: {
     color: "white",
     textAlign: "center",
-    alignItems: "center",
-    justifyContent: "center",
   },
   bitcoin: {
     width: 54,
@@ -40,6 +34,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 30, // Adiciona margem acima das imagens das criptomoedas
+    margin: 15,
   },
   ethereum: {
     width: 54,
@@ -73,5 +68,7 @@ export const styles = StyleSheet.create({
     height: 300,
     resizeMode: "contain", // ajusta a imagem dentro do tamanho proposto
   },
-  sobretext: {},
+  sobretext: {
+    fontSize: 20,
+  },
 });

@@ -128,8 +128,8 @@ export default function CalcCripto() {
           changeText={setTaxadevenda}
         />
 
-        <TouchableOpacity onPress={profit_loss}>
-          <Text style={styles.button1}> Calcular</Text>
+        <TouchableOpacity style={styles.button1} onPress={profit_loss}>
+          <Text style={styles.buttonText}>Calcular</Text>
         </TouchableOpacity>
         <View style={styles.cryptoContainer}>
           {/* Ethereum */}
