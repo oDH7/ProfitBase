@@ -28,10 +28,6 @@ export default function App() {
           tabBarStyle: {
             backgroundColor: "#FFD7A9",
             height: 50,
-            position: "absolute",
-            bottom: 20,
-            right: 20,
-            left: 20,
             borderTopEndRadius: 15,
             borderTopColor: "transparent",
             padding: 10,

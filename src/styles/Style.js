@@ -4,17 +4,21 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFD7A9",
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
     paddingTop: "30%",
-    width: "100%",
+  },
+  telas: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   profitbase: {
-    width: 187,
-    height: 35,
+    width: 200,
+    height: 50,
     resizeMode: "contain",
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
   },
   button1: {
     backgroundColor: "#FF8800",
@@ -34,7 +38,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 30, // Adiciona margem acima das imagens das criptomoedas
-    margin: 15,
   },
   ethereum: {
     width: 54,
@@ -58,6 +61,7 @@ export const styles = StyleSheet.create({
   input: {
     margin: 20,
     backgroundColor: "orange",
+    borderColor: "white",
     fontSize: 10,
     borderWidth: 1,
     padding: 4,
@@ -70,5 +74,10 @@ export const styles = StyleSheet.create({
   },
   sobretext: {
     fontSize: 20,
+    marginLeft: 20,
+    marginTop: 15,
+  },
+  icone: {
+    marginTop: 20,
   },
 });
