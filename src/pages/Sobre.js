@@ -14,7 +14,10 @@ export default function Sobre() {
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.telas}>
-          <TouchableOpacity style={styles.touch} onPress={() => alert("Logo")}>
+          <TouchableOpacity
+            style={styles.touch}
+            onPress={() => navigation.navigate("Home")}
+          >
             <Image
               source={require("../uploads/black.png")}
               resizeMode="contain"
@@ -44,7 +47,7 @@ export default function Sobre() {
             <Text style={styles.buttonText}>Calcular Crypto</Text>
           </TouchableOpacity>
           <AntDesign
-            style={styles.icone}
+            style={styles.iconsobre}
             name="checkcircle"
             size={30}
             color="black"
@@ -53,6 +56,7 @@ export default function Sobre() {
             Informações Autênticas e dados reais atualizados com base nos
             valores de mercado.
           </Text>
+          <AntDesign name="lock" size={30} color="black" />
           <Text style={styles.sobretext}>
             Seus dados e informações estão seguros.
           </Text>

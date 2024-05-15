@@ -6,7 +6,7 @@ export default function TouchableOpacityProps({
   OnPress,
 }) {
   return (
-    <TouchableOpacity onPress={OnPress} style={TouchStyle}>
+    <TouchableOpacity onPress={() => OnPress()} style={TouchStyle}>
       {children}
     </TouchableOpacity>
   );

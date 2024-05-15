@@ -6,6 +6,21 @@ export const styles = StyleSheet.create({
     backgroundColor: "#FFD7A9",
     paddingTop: "30%",
   },
+  square: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
+    borderColor: "black",
+    borderRadius: 10,
+    width: "70%",
+    height: "40%",
+  },
+  modal: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFD7A9",
+    flex: 1,
+  },
   telas: {
     flex: 1,
     justifyContent: "center",
@@ -59,7 +74,7 @@ export const styles = StyleSheet.create({
   input: {
     margin: 20,
     width: "30%",
-    backgroundColor: "orange",
+    backgroundColor: "#FF8800",
     borderColor: "white",
     fontSize: 10,
     borderWidth: 1,
@@ -77,7 +92,16 @@ export const styles = StyleSheet.create({
     marginTop: 15,
     color: "black",
   },
-  icone: {
+  iconsobre: {
     marginTop: 20,
+  },
+  resultadoTxt: {
+    fontSize: 1,
+  },
+  ganhosperdasTxt: {
+    fontSize: 1,
+  },
+  result: {
+    fontSize: 100,
   },
 });

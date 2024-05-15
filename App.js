@@ -78,6 +78,7 @@ export default function App() {
             headerShown: false,
             title: "",
           }}
+          initialParams={{ controlProps: false }}
         />
         {/* Define uma tela com o nome "CalcImc" e associa o componente CalcImc a ela. */}
       </Tab.Navigator>

@@ -10,15 +10,11 @@ export default function Home() {
     <View style={styles.container}>
       <View style={styles.telas}>
         {/* Imagem da profitbase */}
-
-        <TouchableOpacity style={styles.touch} onPress={() => alert("Logo")}>
-          <Image
-            source={require("../uploads/black.png")}
-            resizeMode="contain"
-            style={styles.profitbase}
-          />
-        </TouchableOpacity>
-
+        <Image
+          source={require("../uploads/black.png")}
+          resizeMode="contain"
+          style={styles.profitbase}
+        />
         {/* Seção de imagens das criptomoedas */}
         <View style={styles.cryptoContainer}>
           {/* Ethereum */}
