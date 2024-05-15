@@ -62,7 +62,9 @@ export default function App() {
           component={Sobre}
           options={{
             tabBarIcon: ({ size, color }) => {
-              return <FontAwesome size={25} color={color} name="newspaper-o" />;
+              return (
+                <FontAwesome6 size={25} color={color} name="people-group" />
+              );
             },
             headerShown: false,
             title: "",

@@ -87,7 +87,7 @@ export default function CalcCripto() {
             <View style={styles.telas}>
               <TouchableOpacityProps
                 style={styles.touch}
-                onPress={() => navigation.navigate("Home")}
+                OnPress={() => navigation.navigate("Home")}
               >
                 <ImageProps
                   ImageUri={require("../uploads/black.png")}
