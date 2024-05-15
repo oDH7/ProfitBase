@@ -96,12 +96,9 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   resultadoTxt: {
-    fontSize: 1,
-  },
-  ganhosperdasTxt: {
-    fontSize: 1,
+    fontSize: 25,
   },
   result: {
-    fontSize: 100,
+    fontSize: 20,
   },
 });

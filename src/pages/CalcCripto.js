@@ -203,7 +203,7 @@ export default function CalcCripto() {
             </View>
 
             <Modal visible={visible}>
-              <StatusBar backgroundColor="FFD7A9" />
+              <StatusBar backgroundColor="#FFD7A9" />
               <View style={styles.modal}>
                 <Image
                   source={require("../uploads/black.png")}
@@ -223,8 +223,6 @@ export default function CalcCripto() {
                     />
                   </TouchableOpacityProps>
                   <TextProps Texto={"Resultados:"} />
-
-                  <TextProps Texto={"GanhHelloos/Perdas : "} />
                   <Text>R${resultado}</Text>
                 </View>
                 <Image
@@ -368,12 +366,8 @@ export default function CalcCripto() {
                   TextStyle={styles.resultadoTxt}
                   Texto={"Resultados:"}
                 />
+                <Text style={styles.result}>R${resultado}</Text>
 
-                <TextProps
-                  TextStyle={styles.ganhosperdasTxt}
-                  Texto={"Ganhos/Perdas : "}
-                />
-                <Text style>R${resultado}</Text>
                 <TouchableOpacityProps OnPress={calcularNovamente}>
                   <AntDesign name="downcircle" size={30} color="#FF8800" />
                 </TouchableOpacityProps>

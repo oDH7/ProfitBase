@@ -37,11 +37,16 @@ export default function CalcRendaFixa() {
   };
 
   const calcularNovamente = () => {
-    setValordecompra("");
-    setInvestimento("");
-    setValordevenda("");
-    setTaxadecompra("");
-    setTaxadevenda("");
+    setInvestimentoinicial("");
+    setAportesmensais("");
+    setPeriodoaplicacao("");
+    setSelic("");
+    setCdi("");
+    setIpcaano("");
+
+    setJurostesouroprefixado("");
+    setJurosipcamais("");
+    setRentabilidadecdbsobrecdi("");
     setVisible(false);
 
     console.log("Investimento zerado: ", investimento);
