@@ -43,7 +43,6 @@ export default function CalcRendaFixa() {
     setSelic("");
     setCdi("");
     setIpcaano("");
-
     setJurostesouroprefixado("");
     setJurosipcamais("");
     setRentabilidadecdbsobrecdi("");
@@ -53,69 +52,90 @@ export default function CalcRendaFixa() {
   };
 
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        <View style={styles.telas}>
-          <TouchableOpacity style={styles.touch} onPress={() => alert("Logo")}>
-            <ImageProps
-              ImageUri={require("../uploads/black.png")}
-              resizeMode="contain"
-              ImageStyle={styles.profitbase}
-            />
-          </TouchableOpacity>
-          <View style={styles.cryptoContainer}></View>
-          <TextProps Texto={"Qual aplicação rende mais???"} />
-
-          <TxtInputComponent
-            txtplace="Investimento Inicial"
-            value={investimentoinicial}
-            changeText={setInvestimentoinicial}
+    <ScrollView>
+      <View style={styles.telas}>
+        <TouchableOpacity style={styles.touch} onPress={() => alert("Logo")}>
+          <ImageProps
+            ImageUri={require("../uploads/black.png")}
+            resizeMode="contain"
+            ImageStyle={styles.profitbase}
           />
-          <TxtInputComponent
-            txtplace="Aportes mensais"
-            value={aportesmensais}
-            changeText={setAportesmensais}
-          />
+        </TouchableOpacity>
+        <View style={styles.cryptoContainer}></View>
+        <TextProps Texto={"Qual aplicação rende mais???"} />
 
-          <TxtInputComponent
-            txtplace="Período de aplicação"
-            value={periodoaplicacao}
-            changeText={setPeriodoaplicacao}
-          />
+        <TxtInputComponent
+          keyboardType="numeric"
+          txtplace="Investimento Inicial"
+          value={investimentoinicial}
+          changeText={setInvestimentoinicial}
+        />
+        <TxtInputComponent
+          txtplace="Aportes mensais"
+          value={aportesmensais}
+          changeText={setAportesmensais}
+        />
 
-          <TxtInputComponent
-            txtplace="Selic efetiva ao ano"
-            value={selic}
-            changeText={setSelic}
-          />
+        <TxtInputComponent
+          txtplace="Período de aplicação"
+          value={periodoaplicacao}
+          changeText={setPeriodoaplicacao}
+        />
 
-          <TxtInputComponent
-            txtplace="Cdi ao ano"
-            value={cdi}
-            changeText={setCdi}
-          />
+        <TxtInputComponent
+          txtplace="Selic efetiva ao ano"
+          value={selic}
+          changeText={setSelic}
+        />
 
-          <TouchableOpacity style={styles.button1} onPress={profit_loss}>
-            <Text style={styles.buttonText}>Calcular</Text>
-          </TouchableOpacity>
-          <View style={styles.cryptoContainer}></View>
+        <TxtInputComponent
+          txtplace="Cdi ao ano"
+          value={cdi}
+          changeText={setCdi}
+        />
 
-          <Modal visible={visible}>
-            <View style={styles.modal}>
-              <TouchableOpacityProps
-                TouchStyle={styles.Touch}
-                OnPress={calcularNovamente}
-              >
-                <TextProps Texto={"Fechar"} />
-              </TouchableOpacityProps>
-              <TextProps Texto={"Resultados:"} />
+        <TxtInputComponent
+          txtplace="Projeção Ipca próximos 12 meses"
+          value={ipcaano}
+          changeText={setIpcaano}
+        />
+        <TxtInputComponent
+          txtplace="Cdi ao ano"
+          value={jurostesouroprefixado}
+          changeText={setJurostesouroprefixado}
+        />
+        <TxtInputComponent
+          txtplace="Cdi ao ano"
+          value={jurosipcamais}
+          changeText={setJurosipcamais}
+        />
 
-              <TextProps Texto={"Ganhos/Perdas : "} />
-              <Text>R${resultado}</Text>
-            </View>
-          </Modal>
-        </View>
-      </ScrollView>
-    </View>
+        <TxtInputComponent
+          txtplace="Cdi ao ano"
+          value={rentabilidadecdbsobrecdi}
+          changeText={setRentabilidadecdbsobrecdi}
+        />
+
+        <TouchableOpacity style={styles.button1} onPress={renda_fixa}>
+          <Text style={styles.buttonText}>Calcular</Text>
+        </TouchableOpacity>
+        <View style={styles.cryptoContainer}></View>
+
+        <Modal visible={visible}>
+          <View style={styles.modal}>
+            <TouchableOpacityProps
+              TouchStyle={styles.Touch}
+              OnPress={calcularNovamente}
+            >
+              <TextProps Texto={"Fechar"} />
+            </TouchableOpacityProps>
+            <TextProps Texto={"Resultados:"} />
+
+            <TextProps Texto={"Ganhos/Perdas : "} />
+            <Text>R${resultado}</Text>
+          </View>
+        </Modal>
+      </View>
+    </ScrollView>
   );
 }

@@ -6,6 +6,17 @@ export const styles = StyleSheet.create({
     backgroundColor: "#FFD7A9",
     paddingTop: "30%",
   },
+  gridContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    width: "80%",
+    marginTop: 20,
+  },
+  gridItem: {
+    width: "48%", // Para duas colunas
+    marginBottom: 20,
+  },
   square: {
     alignItems: "center",
     justifyContent: "center",
@@ -25,6 +36,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#FFD7A9",
   },
   profitbase: {
     width: 200,
@@ -32,6 +44,7 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: "30%",
   },
   button1: {
     backgroundColor: "#FF8800",
@@ -80,6 +93,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 4,
     paddingLeft: 10,
+    flexDirection: "row",
   },
   celularimg: {
     width: 300,
@@ -97,6 +111,7 @@ export const styles = StyleSheet.create({
   },
   resultadoTxt: {
     fontSize: 25,
+    fontWeight: "bold",
   },
   result: {
     fontSize: 20,

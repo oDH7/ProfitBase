@@ -75,16 +75,169 @@ export default function CalcCripto() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#FFD7A9" }}>
-      {control ? (
-        <Animated.View
-          style={{
-            width: "100%",
-            height: heightValue,
-          }}
-        >
+    <ScrollView>
+      <View style={{ flex: 1, backgroundColor: "#FFD7A9" }}>
+        {control ? (
+          <Animated.View
+            style={{
+              width: "100%",
+              height: heightValue,
+            }}
+          >
+            <View style={styles.telas}>
+              <TouchableOpacityProps
+                style={styles.touch}
+                onPress={() => navigation.navigate("Home")}
+              >
+                <ImageProps
+                  ImageUri={require("../uploads/black.png")}
+                  resizeMode="contain"
+                  ImageStyle={styles.profitbase}
+                />
+              </TouchableOpacityProps>
+              <View style={styles.cryptoContainer}>
+                {/* Ethereum */}
+
+                <TouchableOpacity
+                  style={styles.touch}
+                  onPress={() => alert("Ethereum")}
+                >
+                  <ImageProps
+                    ImageUri={require("../uploads/ethereum.png")}
+                    resizeMode="contain"
+                    ImageStyle={styles.ethereum}
+                  />
+                </TouchableOpacity>
+
+                {/* Bitcoin */}
+                <TouchableOpacity
+                  style={styles.touch}
+                  onPress={() => alert("Bitcoin")}
+                >
+                  <ImageProps
+                    ImageUri={require("../uploads/bitcoin.png")}
+                    resizeMode="contain"
+                    ImageStyle={styles.bitcoin}
+                  />
+                </TouchableOpacity>
+
+                {/* Solana */}
+                <TouchableOpacity
+                  style={styles.touch}
+                  onPress={() => alert("Solana")}
+                >
+                  <ImageProps
+                    ImageUri={require("../uploads/solana.png")}
+                    resizeMode="contain"
+                    ImageStyle={styles.solana}
+                  />
+                </TouchableOpacity>
+              </View>
+              <TextProps Texto={"Calcular Investimento"} />
+
+              <TxtInputComponent
+                txtplace="Preço de compra"
+                value={valordecompra}
+                changeText={setValordecompra}
+              />
+              <TxtInputComponent
+                txtplace="Investimento"
+                value={investimento}
+                changeText={setInvestimento}
+              />
+
+              <TxtInputComponent
+                txtplace="Preço de venda"
+                value={valordevenda}
+                changeText={setValordevenda}
+              />
+
+              <TxtInputComponent
+                txtplace="Taxa de compra"
+                value={taxadecompra}
+                changeText={setTaxadecompra}
+              />
+
+              <TxtInputComponent
+                txtplace="Taxa de venda"
+                value={taxadevenda}
+                changeText={setTaxadevenda}
+              />
+
+              <TouchableOpacity style={styles.button1} onPress={profit_loss}>
+                <Text style={styles.buttonText}>Calcular</Text>
+              </TouchableOpacity>
+              <View style={styles.cryptoContainer}>
+                {/* Ethereum */}
+                <TouchableOpacity
+                  style={styles.touch}
+                  onPress={() => alert("Ethereum")}
+                >
+                  <ImageProps
+                    ImageUri={require("../uploads/ethereum.png")}
+                    resizeMode="contain"
+                    ImageStyle={styles.ethereum}
+                  />
+                </TouchableOpacity>
+                {/* Bitcoin */}
+                <TouchableOpacity
+                  style={styles.touch}
+                  onPress={() => alert("Bitcoin")}
+                >
+                  <ImageProps
+                    ImageUri={require("../uploads/bitcoin.png")}
+                    resizeMode="contain"
+                    ImageStyle={styles.bitcoin}
+                  />
+                </TouchableOpacity>
+                {/* Solana */}
+                <TouchableOpacity
+                  style={styles.touch}
+                  onPress={() => alert("Solana")}
+                >
+                  <ImageProps
+                    ImageUri={require("../uploads/solana.png")}
+                    resizeMode="contain"
+                    ImageStyle={styles.solana}
+                  />
+                </TouchableOpacity>
+              </View>
+
+              <Modal visible={visible}>
+                <StatusBar backgroundColor="#FFD7A9" />
+                <View style={styles.modal}>
+                  <Image
+                    source={require("../uploads/black.png")}
+                    resizeMode="contain"
+                    style={styles.profitbase}
+                  />
+                  <View style={styles.square}>
+                    <TouchableOpacityProps
+                      TouchStyle={styles.Touch}
+                      OnPress={calcularNovamente}
+                    >
+                      <AntDesign
+                        style={styles.closeicon}
+                        name="downcircle"
+                        size={30}
+                        color="#FF8800"
+                      />
+                    </TouchableOpacityProps>
+                    <TextProps Texto={"Resultados:"} />
+                    <Text>R${resultado}</Text>
+                  </View>
+                  <Image
+                    source={require("../uploads/black.png")}
+                    resizeMode="contain"
+                    style={styles.profitbase}
+                  />
+                </View>
+              </Modal>
+            </View>
+          </Animated.View>
+        ) : (
           <View style={styles.telas}>
-            <TouchableOpacityProps
+            <TouchableOpacity
               style={styles.touch}
               onPress={() => navigation.navigate("Home")}
             >
@@ -93,7 +246,7 @@ export default function CalcCripto() {
                 resizeMode="contain"
                 ImageStyle={styles.profitbase}
               />
-            </TouchableOpacityProps>
+            </TouchableOpacity>
             <View style={styles.cryptoContainer}>
               {/* Ethereum */}
 
@@ -203,7 +356,6 @@ export default function CalcCripto() {
             </View>
 
             <Modal visible={visible}>
-              <StatusBar backgroundColor="#FFD7A9" />
               <View style={styles.modal}>
                 <Image
                   source={require("../uploads/black.png")}
@@ -211,171 +363,21 @@ export default function CalcCripto() {
                   style={styles.profitbase}
                 />
                 <View style={styles.square}>
-                  <TouchableOpacityProps
-                    TouchStyle={styles.Touch}
-                    OnPress={calcularNovamente}
-                  >
-                    <AntDesign
-                      style={styles.closeicon}
-                      name="downcircle"
-                      size={30}
-                      color="#FF8800"
-                    />
+                  <TextProps
+                    TextStyle={styles.resultadoTxt}
+                    Texto={"Resultados:"}
+                  />
+                  <Text style={styles.result}>R${resultado}</Text>
+
+                  <TouchableOpacityProps OnPress={calcularNovamente}>
+                    <AntDesign name="downcircle" size={30} color="#FF8800" />
                   </TouchableOpacityProps>
-                  <TextProps Texto={"Resultados:"} />
-                  <Text>R${resultado}</Text>
                 </View>
-                <Image
-                  source={require("../uploads/black.png")}
-                  resizeMode="contain"
-                  style={styles.profitbase}
-                />
               </View>
             </Modal>
           </View>
-        </Animated.View>
-      ) : (
-        <View style={styles.telas}>
-          <TouchableOpacity
-            style={styles.touch}
-            onPress={() => navigation.navigate("Home")}
-          >
-            <ImageProps
-              ImageUri={require("../uploads/black.png")}
-              resizeMode="contain"
-              ImageStyle={styles.profitbase}
-            />
-          </TouchableOpacity>
-          <View style={styles.cryptoContainer}>
-            {/* Ethereum */}
-
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Ethereum")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/ethereum.png")}
-                resizeMode="contain"
-                ImageStyle={styles.ethereum}
-              />
-            </TouchableOpacity>
-
-            {/* Bitcoin */}
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Bitcoin")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/bitcoin.png")}
-                resizeMode="contain"
-                ImageStyle={styles.bitcoin}
-              />
-            </TouchableOpacity>
-
-            {/* Solana */}
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Solana")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/solana.png")}
-                resizeMode="contain"
-                ImageStyle={styles.solana}
-              />
-            </TouchableOpacity>
-          </View>
-          <TextProps Texto={"Calcular Investimento"} />
-
-          <TxtInputComponent
-            txtplace="Preço de compra"
-            value={valordecompra}
-            changeText={setValordecompra}
-          />
-          <TxtInputComponent
-            txtplace="Investimento"
-            value={investimento}
-            changeText={setInvestimento}
-          />
-
-          <TxtInputComponent
-            txtplace="Preço de venda"
-            value={valordevenda}
-            changeText={setValordevenda}
-          />
-
-          <TxtInputComponent
-            txtplace="Taxa de compra"
-            value={taxadecompra}
-            changeText={setTaxadecompra}
-          />
-
-          <TxtInputComponent
-            txtplace="Taxa de venda"
-            value={taxadevenda}
-            changeText={setTaxadevenda}
-          />
-
-          <TouchableOpacity style={styles.button1} onPress={profit_loss}>
-            <Text style={styles.buttonText}>Calcular</Text>
-          </TouchableOpacity>
-          <View style={styles.cryptoContainer}>
-            {/* Ethereum */}
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Ethereum")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/ethereum.png")}
-                resizeMode="contain"
-                ImageStyle={styles.ethereum}
-              />
-            </TouchableOpacity>
-            {/* Bitcoin */}
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Bitcoin")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/bitcoin.png")}
-                resizeMode="contain"
-                ImageStyle={styles.bitcoin}
-              />
-            </TouchableOpacity>
-            {/* Solana */}
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Solana")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/solana.png")}
-                resizeMode="contain"
-                ImageStyle={styles.solana}
-              />
-            </TouchableOpacity>
-          </View>
-
-          <Modal visible={visible}>
-            <View style={styles.modal}>
-              <Image
-                source={require("../uploads/black.png")}
-                resizeMode="contain"
-                style={styles.profitbase}
-              />
-              <View style={styles.square}>
-                <TextProps
-                  TextStyle={styles.resultadoTxt}
-                  Texto={"Resultados:"}
-                />
-                <Text style={styles.result}>R${resultado}</Text>
-
-                <TouchableOpacityProps OnPress={calcularNovamente}>
-                  <AntDesign name="downcircle" size={30} color="#FF8800" />
-                </TouchableOpacityProps>
-              </View>
-            </View>
-          </Modal>
-        </View>
-      )}
-    </View>
+        )}
+      </View>
+    </ScrollView>
   );
 }

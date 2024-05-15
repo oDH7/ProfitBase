@@ -8,6 +8,7 @@ export default function TxtInputComponent({ txtplace, changeText, value }) {
       placeholder={txtplace}
       value={value}
       onChangeText={changeText}
+      keyboardType="numeric"
     />
   );
 }
