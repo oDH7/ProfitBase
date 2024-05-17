@@ -2,20 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#FFD7A9",
-    paddingTop: "30%",
-  },
-  gridContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-    width: "80%",
-    marginTop: 20,
-  },
-  gridItem: {
-    width: "48%", // Para duas colunas
-    marginBottom: 20,
+    flex: 1,
   },
   square: {
     alignItems: "center",
@@ -37,6 +25,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FFD7A9",
+    marginTop: "40%",
   },
   profitbase: {
     width: 200,
@@ -44,7 +33,6 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "30%",
   },
   button1: {
     backgroundColor: "#FF8800",
@@ -63,19 +51,14 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 30, // Adiciona margem acima das imagens das criptomoedas
   },
   ethereum: {
     width: 54,
     height: 50,
-    resizeMode: "contain",
-    marginTop: 30,
   },
   solana: {
     width: 54,
     height: 50,
-    resizeMode: "contain",
-    marginTop: 30,
   },
   cryptoContainer: {
     flexDirection: "row",
@@ -86,25 +69,28 @@ export const styles = StyleSheet.create({
   },
   input: {
     margin: 20,
-    width: "30%",
     backgroundColor: "#FF8800",
     borderColor: "white",
+    width: "35%",
     fontSize: 10,
     borderWidth: 1,
     padding: 4,
     paddingLeft: 10,
-    flexDirection: "row",
+    marginBottom: 20,
   },
   celularimg: {
-    width: 300,
-    height: 300,
+    width: "100%",
+    height: 500,
     resizeMode: "contain", // ajusta a imagem dentro do tamanho proposto
   },
-  sobretext: {
-    fontSize: 20,
+  text: {
+    fontSize: 18,
     marginLeft: 20,
     marginTop: 15,
     color: "black",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
   },
   iconsobre: {
     marginTop: 20,
