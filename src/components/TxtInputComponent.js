@@ -9,6 +9,7 @@ export default function TesteInput({ txtplace, changeText, value }) {
       value={value}
       onChangeText={changeText}
       keyboardType="numeric"
+      editable={true} // Adicionando esta linha para tornar o TextInput editável
     />
   );
 }

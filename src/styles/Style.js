@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
   },
   button1: {
     backgroundColor: "#FF8800",
-    borderRadius: 10,
+    borderRadius: 20,
     padding: 10,
     marginTop: 30, // Adiciona margem entre os botões do menu
     color: "white",
@@ -67,6 +67,7 @@ export const styles = StyleSheet.create({
   },
   input: {
     margin: 20,
+    borderRadius: 20,
     backgroundColor: "#FF8800",
     borderColor: "white",
     width: "35%",
@@ -76,6 +77,21 @@ export const styles = StyleSheet.create({
     paddingLeft: 10,
     marginBottom: 20,
   },
+  button: {
+    backgroundColor: "#FF8800",
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    marginBottom: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+
   celularimg: {
     width: "100%",
     height: 500,
@@ -106,8 +122,10 @@ export const styles = StyleSheet.create({
   picker: {
     height: 50,
     width: 200,
-    backgroundColor: "#FF8800",
+    backgroundColor: "black",
     marginVertical: 20,
+    color: "white",
+    fontWeight: "bold",
   },
   seta: {
     top: 20,

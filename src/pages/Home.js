@@ -1,19 +1,13 @@
 import React from "react";
-import { TouchableOpacity, Text, View, Image } from "react-native";
+import { TouchableOpacity, Text, View, Image, ScrollView } from "react-native";
 import { styles } from "../styles/Style";
 import { useNavigation } from "@react-navigation/native";
-import LinearGradient from "react-native-linear-gradient";
 
 export default function Home() {
   const navigation = useNavigation();
 
   return (
-    <LinearGradient
-      colors={["#FFD7A9", "#FF8800"]}
-      style={styles.telas}
-      start={{ x: 0.5, y: 0 }}
-      end={{ x: 0.5, y: 1 }}
-    >
+    <View style={styles.telas}>
       {/* Imagem da profitbase */}
       <Image
         source={require("../uploads/black.png")}
@@ -23,6 +17,7 @@ export default function Home() {
       {/* Seção de imagens das criptomoedas */}
       <View style={styles.cryptoContainer}>
         {/* Ethereum */}
+
         <TouchableOpacity
           style={styles.touch}
           onPress={() => alert("Ethereum")}
@@ -103,6 +98,6 @@ export default function Home() {
           />
         </TouchableOpacity>
       </View>
-    </LinearGradient>
+    </View>
   );
 }
