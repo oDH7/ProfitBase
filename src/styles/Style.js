@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FFD7A9",
   },
 
   profitbase: {
@@ -70,7 +69,8 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: "#FF8800",
     borderColor: "white",
-    width: "35%",
+    color: "white",
+    width: 150,
     fontSize: 10,
     borderWidth: 1,
     padding: 4,
@@ -101,7 +101,7 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     marginLeft: 20,
     marginTop: 15,
-    color: "black",
+    color: "white",
     fontWeight: "bold",
     alignItems: "center",
     justifyContent: "center",
@@ -122,12 +122,25 @@ export const styles = StyleSheet.create({
   picker: {
     height: 50,
     width: 200,
-    backgroundColor: "black",
+    backgroundColor: "#FF8800",
     marginVertical: 20,
     color: "white",
     fontWeight: "bold",
   },
   seta: {
     top: 20,
+  },
+  carouselItem: {
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    height: 200,
+    padding: 50,
+    marginLeft: 25,
+    marginRight: 25,
+  },
+  carouselImage: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
   },
 });

@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, Modal, ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { styles } from "../styles/Style";
+import { LinearGradient } from "expo-linear-gradient";
 
 // Import Hook useState
 import React, { useState } from "react";
@@ -56,90 +57,97 @@ export default function CalcRendaFixa() {
 
   return (
     <ScrollView>
-      <View style={styles.telas}>
-        <TouchableOpacityProps
-          style={styles.touch}
-          OnPress={() => navigation.navigate("Home")}
-        >
-          <ImageProps
-            ImageUri={require("../uploads/black.png")}
-            resizeMode="contain"
-            ImageStyle={styles.profitbase}
+      <LinearGradient
+        colors={["#FFD7A9", "#FF8800"]}
+        style={styles.telas}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 1 }}
+      >
+        <View style={styles.telas}>
+          <TouchableOpacityProps
+            style={styles.touch}
+            OnPress={() => navigation.navigate("Home")}
+          >
+            <ImageProps
+              ImageUri={require("../uploads/black.png")}
+              resizeMode="contain"
+              ImageStyle={styles.profitbase}
+            />
+          </TouchableOpacityProps>
+          <View style={styles.cryptoContainer}></View>
+          <Text style={styles.text}> Qual Aplicação rende mais ?</Text>
+          <TxtInputComponent
+            keyboardType="numeric"
+            txtplace="Investimento Inicial"
+            value={investimentoinicial}
+            changeText={setInvestimentoinicial}
           />
-        </TouchableOpacityProps>
-        <View style={styles.cryptoContainer}></View>
-        <Text style={styles.text}> Qual Aplicação rende mais ?</Text>
-        <TxtInputComponent
-          keyboardType="numeric"
-          txtplace="Investimento Inicial"
-          value={investimentoinicial}
-          changeText={setInvestimentoinicial}
-        />
-        <TxtInputComponent
-          txtplace="Aportes mensais"
-          value={aportesmensais}
-          changeText={setAportesmensais}
-        />
+          <TxtInputComponent
+            txtplace="Aportes mensais"
+            value={aportesmensais}
+            changeText={setAportesmensais}
+          />
 
-        <TxtInputComponent
-          txtplace="Período de aplicação"
-          value={periodoaplicacao}
-          changeText={setPeriodoaplicacao}
-        />
+          <TxtInputComponent
+            txtplace="Período de aplicação"
+            value={periodoaplicacao}
+            changeText={setPeriodoaplicacao}
+          />
 
-        <TxtInputComponent
-          txtplace="Selic efetiva ao ano"
-          value={selic}
-          changeText={setSelic}
-        />
+          <TxtInputComponent
+            txtplace="Selic efetiva ao ano"
+            value={selic}
+            changeText={setSelic}
+          />
 
-        <TxtInputComponent
-          txtplace="Cdi ao ano"
-          value={cdi}
-          changeText={setCdi}
-        />
+          <TxtInputComponent
+            txtplace="Cdi ao ano"
+            value={cdi}
+            changeText={setCdi}
+          />
 
-        <TxtInputComponent
-          txtplace="Projeção Ipca próximos 12 meses"
-          value={ipcaano}
-          changeText={setIpcaano}
-        />
-        <TxtInputComponent
-          txtplace="Cdi ao ano"
-          value={jurostesouroprefixado}
-          changeText={setJurostesouroprefixado}
-        />
-        <TxtInputComponent
-          txtplace="Cdi ao ano"
-          value={jurosipcamais}
-          changeText={setJurosipcamais}
-        />
+          <TxtInputComponent
+            txtplace="Projeção Ipca próximos 12 meses"
+            value={ipcaano}
+            changeText={setIpcaano}
+          />
+          <TxtInputComponent
+            txtplace="Cdi ao ano"
+            value={jurostesouroprefixado}
+            changeText={setJurostesouroprefixado}
+          />
+          <TxtInputComponent
+            txtplace="Cdi ao ano"
+            value={jurosipcamais}
+            changeText={setJurosipcamais}
+          />
 
-        <TxtInputComponent
-          txtplace="Cdi ao ano"
-          value={rentabilidadecdbsobrecdi}
-          changeText={setRentabilidadecdbsobrecdi}
-        />
+          <TxtInputComponent
+            txtplace="Cdi ao ano"
+            value={rentabilidadecdbsobrecdi}
+            changeText={setRentabilidadecdbsobrecdi}
+          />
 
-        <TouchableOpacity style={styles.button1} onPress={renda_fixa}>
-          <Text style={styles.buttonText}>Calcular</Text>
-        </TouchableOpacity>
-        <View style={styles.cryptoContainer}></View>
-        <Modal visible={visible}>
-          <View style={styles.modal}>
-            <TouchableOpacityProps
-              TouchStyle={styles.Touch}
-              OnPress={calcularNovamente}
-            >
-              <TextProps Texto={"Fechar"} />
-            </TouchableOpacityProps>
-            <TextProps Texto={"Resultados:"} />
+          <TouchableOpacity style={styles.button1} onPress={renda_fixa}>
+            <Text style={styles.buttonText}>Calcular</Text>
+          </TouchableOpacity>
+          <View style={styles.cryptoContainer}></View>
+          <Modal visible={visible}>
+            <View style={styles.modal}>
+              <TouchableOpacityProps
+                TouchStyle={styles.Touch}
+                OnPress={calcularNovamente}
+              >
+                <TextProps Texto={"Fechar"} />
+              </TouchableOpacityProps>
+              <TextProps Texto={"Resultados:"} />
 
-            <TextProps Texto={"Ganhos/Perdas : "} />
-            <Text>R${resultado}</Text>
-          </View>
-        </Modal>
-      </View>
+              <TextProps Texto={"Ganhos/Perdas : "} />
+              <Text>R${resultado}</Text>
+            </View>
+          </Modal>
+        </View>
+      </LinearGradient>
     </ScrollView>
   );
 }

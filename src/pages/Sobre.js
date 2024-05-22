@@ -1,6 +1,7 @@
 import { View, TouchableOpacity, Text, Image, ScrollView } from "react-native";
 import { styles } from "../styles/Style";
 import { AntDesign } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 
 // Import Componentes
 import TxtComponent from "../components/TextProps";
@@ -11,8 +12,13 @@ import { useNavigation } from "@react-navigation/native";
 export default function Sobre() {
   const navigation = useNavigation();
   return (
-    <ScrollView>
-      <View style={styles.container}>
+    <LinearGradient
+      colors={["#FFD7A9", "#FF8800"]}
+      style={styles.telas}
+      start={{ x: 0.5, y: 0 }}
+      end={{ x: 0.5, y: 1 }}
+    >
+      <ScrollView>
         <View style={styles.telas}>
           <TouchableOpacity
             style={styles.touch}
@@ -61,7 +67,7 @@ export default function Sobre() {
             Seus dados e informações estão seguros.
           </Text>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </LinearGradient>
   );
 }
