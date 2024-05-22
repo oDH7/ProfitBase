@@ -7,25 +7,24 @@ import {
   Image,
   Dimensions,
   StatusBar,
-  TextInput,
+  Alert,
 } from "react-native";
 import { styles } from "../styles/Style";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
-
-// Import Hook useState
-import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Picker } from "@react-native-picker/picker";
+import React, { useState, useEffect, useCallback } from "react";
 
 const { height: DEVICE_HEIGHT } = Dimensions.get("window");
 
 // Import Componentes
 import TxtInputComponent from "../components/TxtInputComponent";
-import TesteInput from "../components/TxtInputComponent";
-
 import TextProps from "../components/TextProps";
 import TouchableOpacityProps from "../components/TouchableOpacityProps";
 import ImageProps from "../components/ImageProps";
-import Home from "./Home";
+
+const CACHE_DURATION = 300000; // 5 minutos
 
 export default function CalcCripto() {
   const route = useRoute();
@@ -39,18 +38,57 @@ export default function CalcCripto() {
   const [visible, setVisible] = useState(false);
   const [resultado, setResultado] = useState(0);
   const [control, setControl] = useState(controlProps);
+  const [selectedCrypto, setSelectedCrypto] = useState("ethereum");
+
+  // Cache para armazenar preços das criptomoedas
+  const priceCache = React.useRef({});
 
   useEffect(() => {
-    if (!visible) {
-      // Animated.timing(heightValue, {
-      //   toValue: DEVICE_HEIGHT,
-      //   duration: 5000,
-      //   useNativeDriver: false, // `useNativeDriver` não é suportado para animações de layout
-      // }).start();
+    fetchCryptoPrice(selectedCrypto);
+  }, [selectedCrypto]);
+
+  const fetchCryptoPrice = useCallback(async (cryptoId) => {
+    const now = Date.now();
+
+    // Verificar cache
+    if (
+      priceCache.current[cryptoId] &&
+      now - priceCache.current[cryptoId].timestamp < CACHE_DURATION
+    ) {
+      setValordecompra(priceCache.current[cryptoId].price.toString());
+      return;
     }
-  }, [visible]);
+
+    try {
+      const response = await axios.get(
+        `https://api.coingecko.com/api/v3/simple/price?ids=${cryptoId}&vs_currencies=brl`
+      );
+      const price = response.data[cryptoId].brl;
+      setValordecompra(price.toString());
+
+      // Atualizar cache
+      priceCache.current[cryptoId] = {
+        price,
+        timestamp: now,
+      };
+    } catch (error) {
+      if (error.response && error.response.status === 429) {
+        Alert.alert(
+          "Muitas solicitações. Por favor, tente novamente mais tarde."
+        );
+      } else {
+        Alert.alert("Erro ao buscar o preço da criptomoeda");
+      }
+      console.error(error);
+      setValordecompra("");
+    }
+  }, []);
 
   const profit_loss = () => {
+    if (valordecompra === "" || valordevenda === "" || investimento === "") {
+      Alert.alert("Por favor, preencha todos os campos necessários");
+      return;
+    }
     const calcProfitLoss =
       investimento * (valordevenda / valordecompra) -
       taxadecompra -
@@ -58,8 +96,6 @@ export default function CalcCripto() {
       investimento;
     setResultado(calcProfitLoss); // Armazenando o resultado do cálculo
     setVisible(true);
-
-    // heightValue.setValue(0);
   };
 
   const calcularNovamente = () => {
@@ -90,7 +126,6 @@ export default function CalcCripto() {
           </TouchableOpacityProps>
           <View style={styles.cryptoContainer}>
             {/* Ethereum */}
-
             <TouchableOpacity
               style={styles.touch}
               onPress={() => alert("Ethereum")}
@@ -126,12 +161,24 @@ export default function CalcCripto() {
               />
             </TouchableOpacity>
           </View>
-          <Text style={styles.text}> Calcular Investimento</Text>
+
+          <Text style={styles.text}>Calcular Investimento (R$)</Text>
+
+          <Picker
+            selectedValue={selectedCrypto}
+            style={styles.picker}
+            onValueChange={(itemValue) => setSelectedCrypto(itemValue)}
+          >
+            <Picker.Item label="Ethereum" value="ethereum" />
+            <Picker.Item label="Bitcoin" value="bitcoin" />
+            <Picker.Item label="Solana" value="solana" />
+          </Picker>
 
           <TxtInputComponent
             txtplace="Preço de compra"
             value={valordecompra}
             changeText={setValordecompra}
+            editable={false} // Torna o campo não editável
           />
           <TxtInputComponent
             txtplace="Investimento"
@@ -172,6 +219,7 @@ export default function CalcCripto() {
                 ImageStyle={styles.ethereum}
               />
             </TouchableOpacity>
+
             {/* Bitcoin */}
             <TouchableOpacity
               style={styles.touch}
@@ -183,6 +231,7 @@ export default function CalcCripto() {
                 ImageStyle={styles.bitcoin}
               />
             </TouchableOpacity>
+
             {/* Solana */}
             <TouchableOpacity
               style={styles.touch}
@@ -205,14 +254,26 @@ export default function CalcCripto() {
                 style={styles.profitbase}
               />
               <View style={styles.square}>
-                <TextProps Texto={"Resultado do investimento:"} />
-                <Text>R${resultado}</Text>
+                <Text style={styles.result}>Resultado do investimento:</Text>
+                <Text
+                  style={[
+                    styles.resultadoTxt,
+                    { color: resultado >= 0 ? "green" : "red" },
+                  ]}
+                >
+                  R${resultado.toFixed(2)}
+                </Text>
 
                 <TouchableOpacityProps
                   TouchStyle={styles.Touch}
                   OnPress={calcularNovamente}
                 >
-                  <AntDesign name="downcircle" size={30} color="#FF8800" />
+                  <AntDesign
+                    style={styles.seta}
+                    name="downcircle"
+                    size={30}
+                    color="#FF8800"
+                  />
                 </TouchableOpacityProps>
               </View>
               <Image

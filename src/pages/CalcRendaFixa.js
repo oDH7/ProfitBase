@@ -1,4 +1,5 @@
 import { View, Text, TouchableOpacity, Modal, ScrollView } from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { styles } from "../styles/Style";
 
 // Import Hook useState
@@ -13,6 +14,7 @@ import ImageProps from "../components/ImageProps";
 import { FontAwesome6 } from "@expo/vector-icons";
 
 export default function CalcRendaFixa() {
+  const navigation = useNavigation();
   const [investimentoinicial, setInvestimentoinicial] = useState("");
   const [aportesmensais, setAportesmensais] = useState("");
   const [periodoaplicacao, setPeriodoaplicacao] = useState("");
@@ -56,13 +58,16 @@ export default function CalcRendaFixa() {
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.telas}>
-          <TouchableOpacity style={styles.touch} onPress={() => alert("Logo")}>
+          <TouchableOpacityProps
+            style={styles.touch}
+            OnPress={() => navigation.navigate("Home")}
+          >
             <ImageProps
               ImageUri={require("../uploads/black.png")}
               resizeMode="contain"
               ImageStyle={styles.profitbase}
             />
-          </TouchableOpacity>
+          </TouchableOpacityProps>
           <View style={styles.cryptoContainer}></View>
           <Text style={styles.text}> Qual Aplicação rende mais ?</Text>
           <TxtInputComponent

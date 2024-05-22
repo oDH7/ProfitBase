@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     borderColor: "black",
     borderRadius: 10,
     width: "70%",
-    height: "40%",
+    height: "20%",
   },
   modal: {
     alignItems: "center",
@@ -96,10 +96,22 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   resultadoTxt: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: "bold",
   },
   result: {
     fontSize: 20,
+    color: "#FF8800",
+    fontWeight: "bold",
+    top: -40,
+  },
+  picker: {
+    height: 50,
+    width: 200,
+    backgroundColor: "#FF8800",
+    marginVertical: 20,
+  },
+  seta: {
+    top: 20,
   },
 });
