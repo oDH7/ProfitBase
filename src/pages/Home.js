@@ -3,6 +3,7 @@ import { TouchableOpacity, Text, View, Image, ScrollView } from "react-native";
 import { styles } from "../styles/Style";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
+import TouchableOpacityProps from "../components/TouchableOpacityProps";
 
 export default function Home() {
   const navigation = useNavigation();

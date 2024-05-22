@@ -37,6 +37,9 @@ export const styles = StyleSheet.create({
     padding: 10,
     marginTop: 30, // Adiciona margem entre os botões do menu
     color: "white",
+    textAlign: "center",
+    borderWidth: 1,
+    borderColor: "white",
   },
   buttonText: {
     color: "white",
@@ -76,15 +79,6 @@ export const styles = StyleSheet.create({
     padding: 4,
     paddingLeft: 10,
     marginBottom: 20,
-  },
-  button: {
-    backgroundColor: "#FF8800",
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    marginBottom: 20,
-    alignItems: "center",
-    justifyContent: "center",
   },
   buttonText: {
     color: "white",
@@ -129,18 +123,5 @@ export const styles = StyleSheet.create({
   },
   seta: {
     top: 20,
-  },
-  carouselItem: {
-    backgroundColor: "#fff",
-    borderRadius: 8,
-    height: 200,
-    padding: 50,
-    marginLeft: 25,
-    marginRight: 25,
-  },
-  carouselImage: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
   },
 });
