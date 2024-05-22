@@ -25,13 +25,13 @@ export default function App() {
       <Tab.Navigator
         initialRouteName="Home"
         screenOptions={{
-          tabBarActiveTintColor: "#FF8800",
+          tabBarActiveTintColor: "#FFD7A9",
           tabBarInactiveTintColor: "black",
           tabBarStyle: {
-            backgroundColor: "#FFD7A9",
+            backgroundColor: "#FF8800",
             height: 50,
-            width: 411,
-            borderTopEndRadius: 15,
+            width: "100%",
+
             borderTopColor: "transparent",
             padding: 10,
             shadowColor: "white",

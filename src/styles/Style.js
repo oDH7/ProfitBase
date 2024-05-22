@@ -1,10 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#FFD7A9",
-    flex: 1,
-  },
   square: {
     alignItems: "center",
     justifyContent: "center",
@@ -25,14 +21,16 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FFD7A9",
-    marginTop: "40%",
   },
+
   profitbase: {
     width: 200,
     height: 50,
     resizeMode: "contain",
     justifyContent: "center",
     alignItems: "center",
+    top: 50,
+    margin: 30,
   },
   button1: {
     backgroundColor: "#FF8800",
