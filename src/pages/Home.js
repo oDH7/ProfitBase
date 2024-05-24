@@ -33,11 +33,16 @@ export default function Home() {
       <View style={styles.telas}>
         {/* Cabeçalho do código */}
         <View style={styles.header}>
-          <ImageProps
-            ImageStyle={styles.profitbase}
-            ImageUri={require("../uploads/black.png")}
-            resizeMode="contain"
-          />
+          <TouchableOpacityProps
+            style={styles.touch}
+            onPress={() => navigation.navigate("Home")}
+          >
+            <ImageProps
+              ImageUri={require("../uploads/black.png")}
+              resizeMode="contain"
+              ImageStyle={styles.profitbase}
+            />
+          </TouchableOpacityProps>
         </View>
 
         <View style={styles.cryptoContainer}>

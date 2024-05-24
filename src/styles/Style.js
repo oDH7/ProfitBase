@@ -12,8 +12,8 @@ export const styles = StyleSheet.create({
   square: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "white",
-    borderColor: "#FFCC80",
+    backgroundColor: "#FFCC80",
+    borderColor: "white",
     borderWidth: 2,
     borderRadius: 30,
     width: 300,
@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
     top: 50,
   },
   button1: {
-    backgroundColor: "#FF8800",
+    backgroundColor: "#FFCC80",
     borderRadius: 20,
     padding: 10,
     marginTop: 30, // Adiciona margem entre os botões do menu
@@ -68,9 +68,9 @@ export const styles = StyleSheet.create({
   input: {
     margin: 20,
     borderRadius: 20,
-    backgroundColor: "#FF8800",
+    backgroundColor: "#FFE0B2",
     borderColor: "white",
-    color: "white",
+    color: "black",
     width: 150,
     fontSize: 10,
     borderWidth: 1,
@@ -106,7 +106,7 @@ export const styles = StyleSheet.create({
   picker: {
     height: 50,
     width: 150,
-    backgroundColor: "#FF8800",
+    backgroundColor: "#FF9800",
     marginVertical: 20,
     color: "white",
     fontWeight: "bold",

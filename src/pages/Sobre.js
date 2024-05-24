@@ -9,8 +9,10 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
 
 // Componentes
-import TxtComponent from "../components/TextProps";
 
+import TextProps from "../components/TextProps";
+import TouchableOpacityProps from "../components/TouchableOpacityProps";
+import ImageProps from "../components/ImageProps";
 // Import Hook useNavigation
 import { useNavigation } from "@react-navigation/native";
 
@@ -33,53 +35,50 @@ export default function Sobre() {
       <ScrollView>
         <View style={styles.telas}>
           <View style={styles.header}>
-            <TouchableOpacity
+            <TouchableOpacityProps
               style={styles.touch}
               onPress={() => navigation.navigate("Home")}
             >
-              <Image
-                source={require("../uploads/black.png")}
+              <ImageProps
+                ImageUri={require("../uploads/black.png")}
                 resizeMode="contain"
-                style={styles.profitbase}
+                ImageStyle={styles.profitbase}
               />
-            </TouchableOpacity>
+            </TouchableOpacityProps>
           </View>
-          <TouchableOpacity style={styles.touch} onPress={() => alert("Logo")}>
-            <Text style={[styles.text, { fontFamily: "Anta-Regular" }]}>
-              Sobre a Profit Base
-            </Text>
-          </TouchableOpacity>
-          <TxtComponent title="Sobre" />
-          <Text style={[styles.text, { fontFamily: "Anta-Regular" }]}>
-            O Profit Base é um aplicativo para investidores de criptomoedas e
-            outros ativos digitais. Ele oferece uma maneira simples de
-            acompanhar o desempenho de suas carteiras em tempo real, permitindo
-            que você entenda seus ganhos e tome decisões informadas para
-            maximizar seus retornos. Simplifique sua experiência de investimento
-            com o Profit Base.
-          </Text>
-          <Image
-            style={styles.celularimg}
-            source={require("../uploads/celular.png")}
+
+          <TextProps
+            Texto="Sobre a Profit Base"
+            TextStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
           />
-          <TouchableOpacity
+          <TextProps
+            Texto="A Profit Base é uma calculadora de rentabilidade. Ele ajuda você a entender seus ganhos de forma simples, para que possa tomar decisões melhores sobre seus investimentos."
+            TextStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
+          />
+          <ImageProps
+            ImageUri={require("../uploads/celular.png")}
+            resizeMode="contain"
+            ImageStyle={styles.celularimg}
+          />
+          <TouchableOpacityProps
             style={styles.button1}
             onPress={() => navigation.navigate("CalcCripto")}
           >
-            <Text style={[styles.buttonText, { fontFamily: "Anta-Regular" }]}>
-              Calcular Crypto
-            </Text>
-          </TouchableOpacity>
+            <TextProps
+              Texto="Ir para a calculadora"
+              TextStyle={[styles.buttonText, { fontFamily: "Anta-Regular" }]}
+            />
+          </TouchableOpacityProps>
           <AntDesign
             style={styles.iconsobre}
             name="checkcircle"
             size={30}
             color="white"
           />
-          <Text style={[styles.text, { fontFamily: "Anta-Regular" }]}>
-            Informações Autênticas e dados reais atualizados com base nos
-            valores de mercado.
-          </Text>
+          <TextProps
+            Texto="Informações Autênticas e dados reais atualizados com base nos valores de mercado."
+            TextStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
+          />
         </View>
       </ScrollView>
     </LinearGradient>

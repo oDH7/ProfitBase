@@ -113,6 +113,7 @@ export default function CalcCripto() {
     setValordevenda("");
     setTaxadecompra("");
     setTaxadevenda("");
+    setResultado(0);
     setVisible(false);
     setControl(true);
 
@@ -130,7 +131,7 @@ export default function CalcCripto() {
         <View style={styles.header}>
           <TouchableOpacityProps
             style={styles.touch}
-            OnPress={() => navigation.navigate("Home")}
+            onPress={() => navigation.navigate("Home")}
           >
             <ImageProps
               ImageUri={require("../uploads/black.png")}
@@ -193,6 +194,7 @@ export default function CalcCripto() {
         </TouchableOpacity>
         <View style={styles.square}>
           <Text
+            onPress={calcularNovamente}
             style={[
               styles.resultadoTxt,
               { color: resultado >= 0 ? "green" : "red" },
