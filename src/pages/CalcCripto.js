@@ -11,11 +11,12 @@ import {
 } from "react-native";
 import { styles } from "../styles/Style";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { AntDesign } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import axios from "axios";
 import { Picker } from "@react-native-picker/picker";
 import React, { useState, useEffect, useCallback } from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import { useFonts } from "expo-font";
 
 const { height: DEVICE_HEIGHT } = Dimensions.get("window");
 
@@ -40,6 +41,13 @@ export default function CalcCripto() {
   const [resultado, setResultado] = useState(0);
   const [control, setControl] = useState(controlProps);
   const [selectedCrypto, setSelectedCrypto] = useState("ethereum");
+  const [fontsLoaded] = useFonts({
+    "Anta-Regular": require("../uploads/fonts/Anta-Regular.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return undefined;
+  }
 
   // Cache para armazenar preços das criptomoedas
   const priceCache = React.useRef({});
@@ -112,14 +120,14 @@ export default function CalcCripto() {
   };
 
   return (
-    <ScrollView>
-      <LinearGradient
-        colors={["#FFD7A9", "#FF8800"]}
-        style={styles.telas}
-        start={{ x: 0.5, y: 0 }}
-        end={{ x: 0.5, y: 1 }}
-      >
-        <View style={styles.telas}>
+    <LinearGradient
+      colors={["#FFD7A9", "#FF8800"]}
+      style={styles.telas}
+      start={{ x: 0.5, y: 0 }}
+      end={{ x: 0.5, y: 1 }}
+    >
+      <View style={styles.telas}>
+        <View style={styles.header}>
           <TouchableOpacityProps
             style={styles.touch}
             OnPress={() => navigation.navigate("Home")}
@@ -130,62 +138,28 @@ export default function CalcCripto() {
               ImageStyle={styles.profitbase}
             />
           </TouchableOpacityProps>
-          <View style={styles.cryptoContainer}>
-            {/* Ethereum */}
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Ethereum")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/ethereum.png")}
-                resizeMode="contain"
-                ImageStyle={styles.ethereum}
-              />
-            </TouchableOpacity>
+        </View>
 
-            {/* Bitcoin */}
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Bitcoin")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/bitcoin.png")}
-                resizeMode="contain"
-                ImageStyle={styles.bitcoin}
-              />
-            </TouchableOpacity>
+        <Text style={[styles.text, { fontFamily: "Anta-Regular" }]}>
+          Calcular Investimento (R$)
+        </Text>
+        <Picker
+          selectedValue={selectedCrypto}
+          style={styles.picker}
+          onValueChange={(itemValue) => setSelectedCrypto(itemValue)}
+        >
+          <Picker.Item label="Ethereum" value="ethereum" />
+          <Picker.Item label="Bitcoin" value="bitcoin" />
+          <Picker.Item label="Solana" value="solana" />
+        </Picker>
 
-            {/* Solana */}
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Solana")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/solana.png")}
-                resizeMode="contain"
-                ImageStyle={styles.solana}
-              />
-            </TouchableOpacity>
-          </View>
-
-          <Text style={styles.text}>Calcular Investimento (R$)</Text>
-
-          <Picker
-            selectedValue={selectedCrypto}
-            style={styles.picker}
-            onValueChange={(itemValue) => setSelectedCrypto(itemValue)}
-          >
-            <Picker.Item label="Ethereum" value="ethereum" />
-            <Picker.Item label="Bitcoin" value="bitcoin" />
-            <Picker.Item label="Solana" value="solana" />
-          </Picker>
-
-          <TxtInputComponent
-            txtplace="Preço de compra"
-            value={valordecompra}
-            changeText={setValordecompra}
-            editable={false} // Torna o campo não editável
-          />
+        <TxtInputComponent
+          txtplace="Preço de compra"
+          value={valordecompra}
+          changeText={setValordecompra}
+          editable={false} // Torna o campo não editável
+        />
+        <View style={styles.cryptoinput}>
           <TxtInputComponent
             txtplace="Investimento"
             value={investimento}
@@ -197,7 +171,8 @@ export default function CalcCripto() {
             value={valordevenda}
             changeText={setValordevenda}
           />
-
+        </View>
+        <View style={styles.cryptoinput}>
           <TxtInputComponent
             txtplace="Taxa de compra"
             value={taxadecompra}
@@ -209,88 +184,30 @@ export default function CalcCripto() {
             value={taxadevenda}
             changeText={setTaxadevenda}
           />
-
-          <TouchableOpacity style={styles.button1} onPress={profit_loss}>
-            <Text style={styles.buttonText}>Calcular</Text>
-          </TouchableOpacity>
-          <View style={styles.cryptoContainer}>
-            {/* Ethereum */}
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Ethereum")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/ethereum.png")}
-                resizeMode="contain"
-                ImageStyle={styles.ethereum}
-              />
-            </TouchableOpacity>
-
-            {/* Bitcoin */}
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Bitcoin")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/bitcoin.png")}
-                resizeMode="contain"
-                ImageStyle={styles.bitcoin}
-              />
-            </TouchableOpacity>
-
-            {/* Solana */}
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => alert("Solana")}
-            >
-              <ImageProps
-                ImageUri={require("../uploads/solana.png")}
-                resizeMode="contain"
-                ImageStyle={styles.solana}
-              />
-            </TouchableOpacity>
-          </View>
-
-          <Modal visible={visible}>
-            <StatusBar backgroundColor="#FFD7A9" />
-            <View style={styles.modal}>
-              <Image
-                source={require("../uploads/black.png")}
-                resizeMode="contain"
-                style={styles.profitbase}
-              />
-              <View style={styles.square}>
-                <Text style={styles.result}>Resultado do investimento:</Text>
-                <Text
-                  style={[
-                    styles.resultadoTxt,
-                    { color: resultado >= 0 ? "green" : "red" },
-                  ]}
-                >
-                  R${resultado.toFixed(2)}
-                </Text>
-
-                <TouchableOpacityProps
-                  TouchStyle={styles.Touch}
-                  OnPress={calcularNovamente}
-                >
-                  <AntDesign
-                    style={styles.seta}
-                    name="downcircle"
-                    size={30}
-                    color="#FF8800"
-                  />
-                </TouchableOpacityProps>
-              </View>
-              <Image
-                source={require("../uploads/black.png")}
-                resizeMode="contain"
-                style={styles.profitbase}
-              />
-            </View>
-          </Modal>
         </View>
-      </LinearGradient>
-    </ScrollView>
+
+        <TouchableOpacity style={styles.button1} onPress={profit_loss}>
+          <Text style={[styles.buttonText, { fontFamily: "Anta-Regular" }]}>
+            Calcular
+          </Text>
+        </TouchableOpacity>
+        <View style={styles.square}>
+          <Text
+            style={[
+              styles.resultadoTxt,
+              { color: resultado >= 0 ? "green" : "red" },
+            ]}
+          >
+            R${resultado.toFixed(2)}
+          </Text>
+        </View>
+        <TouchableOpacityProps
+          TouchStyle={styles.Touch}
+          onPress={calcularNovamente}
+        >
+          <Entypo name="cw" size={30} color="white" />
+        </TouchableOpacityProps>
+      </View>
+    </LinearGradient>
   );
 }

@@ -8,7 +8,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./src/pages/Home";
 import Sobre from "./src/pages/Sobre";
 import CalcCripto from "./src/pages/CalcCripto";
-import CalcRendaFixa from "./src/pages/CalcRendaFixa";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { Octicons } from "@expo/vector-icons";
@@ -57,21 +56,7 @@ export default function App() {
             title: "",
           }}
         />
-        {/* Define uma tela com o nome "Home" e associa o componente Home a ela. */}
-        <Tab.Screen
-          name="Sobre"
-          component={Sobre}
-          options={{
-            tabBarIcon: ({ size, color }) => {
-              return (
-                <FontAwesome6 size={25} color={color} name="people-group" />
-              );
-            },
-            headerShown: false,
-            title: "",
-          }}
-        />
-        {/* Define uma tela com o nome "Sobre" e associa o componente Sobre a ela. */}
+
         <Tab.Screen
           name="CalcCripto"
           component={CalcCripto}
@@ -84,15 +69,14 @@ export default function App() {
           }}
           initialParams={{ controlProps: false }}
         />
-
-        {/* Define uma tela com o nome "CalcImc" e associa o componente CalcImc a ela. */}
-
         <Tab.Screen
-          name="CalcRendaFixa"
-          component={CalcRendaFixa}
+          name="Sobre"
+          component={Sobre}
           options={{
             tabBarIcon: ({ size, color }) => {
-              return <Octicons size={25} color={color} name="graph" />;
+              return (
+                <FontAwesome6 size={25} color={color} name="people-group" />
+              );
             },
             headerShown: false,
             title: "",

@@ -3,10 +3,10 @@ import { TouchableOpacity } from "react-native";
 export default function TouchableOpacityProps({
   children,
   TouchStyle,
-  OnPress,
+  onPress,
 }) {
   return (
-    <TouchableOpacity onPress={() => OnPress()} style={TouchStyle}>
+    <TouchableOpacity onPress={onPress} style={TouchStyle}>
       {children}
     </TouchableOpacity>
   );

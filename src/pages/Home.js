@@ -1,14 +1,29 @@
 import React from "react";
-import { TouchableOpacity, Text, View, Image, ScrollView } from "react-native";
+import { View } from "react-native";
+// Estilização
 import { styles } from "../styles/Style";
+// Rotas
 import { useNavigation } from "@react-navigation/native";
+// Gradiente
 import { LinearGradient } from "expo-linear-gradient";
+// Componentes
 import TouchableOpacityProps from "../components/TouchableOpacityProps";
+import ImageProps from "../components/ImageProps";
+// Fontes
+import { useFonts } from "expo-font";
 
 export default function Home() {
   const navigation = useNavigation();
+  const [fontsLoaded] = useFonts({
+    "Anta-Regular": require("../uploads/fonts/Anta-Regular.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return undefined;
+  }
 
   return (
+    // Gradiente De Cor
     <LinearGradient
       colors={["#FFD7A9", "#FF8800"]}
       style={styles.telas}
@@ -16,107 +31,42 @@ export default function Home() {
       end={{ x: 0.5, y: 1 }}
     >
       <View style={styles.telas}>
-        {/* Imagem da profitbase */}
-        <Image
-          source={require("../uploads/black.png")}
-          resizeMode="contain"
-          style={styles.profitbase}
-        />
-        {/* Seção de imagens das criptomoedas */}
-        <View style={styles.cryptoContainer}>
-          {/* Ethereum */}
-
-          <TouchableOpacity
-            style={styles.touch}
-            onPress={() => alert("Ethereum")}
-          >
-            <Image
-              source={require("../uploads/ethereum.png")}
-              resizeMode="contain"
-              style={styles.ethereum}
-            />
-          </TouchableOpacity>
-
-          {/* Bitcoin */}
-          <TouchableOpacity
-            style={styles.touch}
-            onPress={() => alert("Bitcoin")}
-          >
-            <Image
-              source={require("../uploads/bitcoin.png")}
-              resizeMode="contain"
-              style={styles.bitcoin}
-            />
-          </TouchableOpacity>
-
-          {/* Solana */}
-          <TouchableOpacity
-            style={styles.touch}
-            onPress={() => alert("Solana")}
-          >
-            <Image
-              source={require("../uploads/solana.png")}
-              resizeMode="contain"
-              style={styles.solana}
-            />
-          </TouchableOpacity>
+        {/* Cabeçalho do código */}
+        <View style={styles.header}>
+          <ImageProps
+            ImageStyle={styles.profitbase}
+            ImageUri={require("../uploads/black.png")}
+            resizeMode="contain"
+          />
         </View>
 
-        {/* Botões de navegação */}
-        <TouchableOpacity
-          style={styles.button1}
-          onPress={() => navigation.navigate("Sobre")}
-        >
-          <Text style={styles.buttonText}>Sobre Nós</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.button1}
-          onPress={() => navigation.navigate("CalcRendaFixa")}
-        >
-          <Text style={styles.buttonText}>Renda Fixa</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button1}
-          onPress={() => navigation.navigate("CalcCripto")}
-        >
-          <Text style={styles.buttonText}>Calculadora Crypto</Text>
-        </TouchableOpacity>
-        {/* Segunda seção de imagens */}
         <View style={styles.cryptoContainer}>
-          {/* Ethereum */}
-          <TouchableOpacity
-            style={styles.touch}
-            onPress={() => alert("Ethereum")}
-          >
-            <Image
-              source={require("../uploads/ethereum.png")}
+          {/* Imagem Ethereum */}
+          <TouchableOpacityProps onPress={() => alert("Ethereum")}>
+            <ImageProps
+              ImageStyle={styles.cryptocoin}
+              ImageUri={require("../uploads/ethereum.png")}
               resizeMode="contain"
-              style={styles.ethereum}
             />
-          </TouchableOpacity>
-          {/* Bitcoin */}
-          <TouchableOpacity
-            style={styles.touch}
-            onPress={() => alert("Bitcoin")}
-          >
-            <Image
-              source={require("../uploads/bitcoin.png")}
+          </TouchableOpacityProps>
+
+          {/* Imagem Bitcoin */}
+          <TouchableOpacityProps onPress={() => alert("Bitcoin")}>
+            <ImageProps
+              ImageStyle={styles.cryptocoin}
+              ImageUri={require("../uploads/bitcoin.png")}
               resizeMode="contain"
-              style={styles.bitcoin}
             />
-          </TouchableOpacity>
-          {/* Solana */}
-          <TouchableOpacity
-            style={styles.touch}
-            onPress={() => alert("Solana")}
-          >
-            <Image
-              source={require("../uploads/solana.png")}
+          </TouchableOpacityProps>
+
+          {/* Imagem Solana */}
+          <TouchableOpacityProps onPress={() => alert("Solana")}>
+            <ImageProps
+              ImageStyle={styles.cryptocoin}
+              ImageUri={require("../uploads/solana.png")}
               resizeMode="contain"
-              style={styles.solana}
             />
-          </TouchableOpacity>
+          </TouchableOpacityProps>
         </View>
       </View>
     </LinearGradient>
