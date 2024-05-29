@@ -9,7 +9,7 @@ import TouchableOpacityProps from "../components/TouchableOpacityProps";
 import ImageProps from "../components/ImageProps";
 import PickerProps from "../components/PickerProps";
 import EthereumImage from "../uploads/ethereum.png";
-import BitcoinImage from "../uploads/bitcointecla.png";
+import BitcoinImage from "../uploads/bitcoin.png";
 import SolanaImage from "../uploads/solana.png";
 
 export default function Info() {

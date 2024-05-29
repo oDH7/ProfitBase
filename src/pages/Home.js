@@ -97,33 +97,15 @@ export default function Home() {
         <View style={styles.cryptoContainer}>
           {cryptoData.map((crypto) => (
             <View key={crypto.id} style={styles.cryptoItem}>
-              <TextProps
-                textStyle={[styles.cryptoName, { fontFamily: "Anta-Regular" }]}
-              >
-                {crypto.name}
-              </TextProps>
-              <TextProps
-                textStyle={[styles.cryptoPrice, { fontFamily: "Anta-Regular" }]}
-              >
-                R${crypto.current_price}
-              </TextProps>
-              <TextProps
-                textStyle={[
-                  styles.cryptoMarketCap,
-                  { fontFamily: "Anta-Regular" },
-                ]}
-              >
+              <Text style={styles.cryptoName}>{crypto.name}</Text>
+              <Text style={styles.cryptoPrice}>R${crypto.current_price}</Text>
+              <Text style={styles.cryptoMarketCap}>
                 Valor de Mercado: {formatMarketCap(crypto.market_cap)}
-              </TextProps>
-              <TextProps
-                textStyle={[
-                  styles.cryptoChange,
-                  { fontFamily: "Anta-Regular" },
-                ]}
-              >
+              </Text>
+              <Text style={styles.cryptoChange}>
                 Variação 24h:{" "}
                 {formatChangePercentage(crypto.price_change_percentage_24h)}
-              </TextProps>
+              </Text>
             </View>
           ))}
           <TouchableOpacityProps
