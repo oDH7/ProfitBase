@@ -4,13 +4,10 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
 import { useNavigation } from "@react-navigation/native";
 import { Picker } from "@react-native-picker/picker";
-
 import { styles } from "../styles/Style";
 import TextProps from "../components/TextProps";
 import TouchableOpacityProps from "../components/TouchableOpacityProps";
 import ImageProps from "../components/ImageProps";
-
-// Importe as imagens
 import EthereumImage from "../uploads/ethereum.png";
 import BitcoinImage from "../uploads/bitcoin.png";
 import SolanaImage from "../uploads/solana.png";
@@ -22,26 +19,25 @@ export default function Info() {
   });
 
   const [selectedCrypto, setSelectedCrypto] = useState("ethereum");
-  const [cryptoInfo, setCryptoInfo] = useState(null); // Adicione o estado para armazenar as informações da criptomoeda
-
+  const [cryptoInfo, setCryptoInfo] = useState(null);
   const cryptoData = {
     ethereum: {
       name: "Ethereum",
       description:
         "O ethereum (ETH) é a segunda maior criptomoeda por capitalização de mercado, depois do bitcoin. Além disso, a blockchain Ethereum é uma plataforma de computação descentralizada que pode executar uma ampla variedade de aplicativos, incluindo todo o universo das finanças descentralizadas (DeFi).Hoje, a rede Ethereum é utilizada para as mais diversas atividades, incluindo ferramentas financeiras, jogos e bancos de dados complexos. E seu potencial de uso futuro está limitado apenas pela imaginação dos desenvolvedores.",
-      image: EthereumImage, // Adicione a imagem importada
+      image: EthereumImage,
     },
     bitcoin: {
       name: "Bitcoin",
       description:
         "O bitcoin foi a primeira criptomoeda adotada de forma ampla. Com o bitcoin, é possível enviar dinheiro digital pela internet de forma segura e direta.Ao contrário de serviços como Venmo e PayPal que dependem do sistema financeiro tradicional e de contas de crédito ou débito para transferir dinheiro, o bitcoin é descentralizado. Isso significa que duas pessoas, em qualquer lugar do mundo, podem negociar bitcoin entre si, sem o envolvimento de bancos, governos ou qualquer outra instituição.",
-      image: BitcoinImage, // Adicione a imagem importada
+      image: BitcoinImage,
     },
     solana: {
       name: "Solana",
       description:
         "Um dos motivos pelo qual Solana atinge velocidades de transação elevadas é a combinação do mecanismo de consenso de prova de participação e de um novo mecanismo, chamado de prova de história. O objetivo da prova de história é criar registros de tempo entre os computadores de uma rede descentralizada sem que eles precisem se comunicar e entrar em consenso.Lembretes Assim como a Ethereum, a Solana é uma plataforma de computação que pode interagir com contratos inteligentes.",
-      image: SolanaImage, // Adicione a imagem importada
+      image: SolanaImage,
     },
   };
 
@@ -101,7 +97,6 @@ export default function Info() {
                 {cryptoInfo.description}
               </Text>
               <Image source={cryptoInfo.image} style={styles.cryptoinfoimg} />
-              {/* Aqui você pode adicionar outras informações específicas da criptomoeda */}
             </View>
           )}
         </View>

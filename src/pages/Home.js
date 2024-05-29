@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import TouchableOpacityProps from "../components/TouchableOpacityProps";
 import ImageProps from "../components/ImageProps";
+import TextProps from "../components/TextProps";
 import { useFonts } from "expo-font";
 
 export default function Home() {
@@ -88,6 +89,14 @@ export default function Home() {
             />
           </TouchableOpacityProps>
         </View>
+        <TextProps
+          text="Bem-Vindo a Profit Base!"
+          textStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
+        />
+        <TextProps
+          text="Acompanhe os valores reais e atualizados das Cryptomoedas no painel abaixa, caso você queira fazer uma simulação de um investimento siga para nossa página da calculadora."
+          textStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
+        />
 
         <View style={styles.cryptoContainer}>
           {cryptoData.map((crypto) => (
@@ -104,6 +113,15 @@ export default function Home() {
             </View>
           ))}
         </View>
+        <TouchableOpacityProps
+          style={styles.button1}
+          onPress={() => navigation.navigate("CalcCripto")}
+        >
+          <TextProps
+            text="Ir para a calculadora"
+            textStyle={[styles.buttonText, { fontFamily: "Anta-Regular" }]}
+          />
+        </TouchableOpacityProps>
       </View>
     </LinearGradient>
   );
