@@ -127,7 +127,7 @@ export const styles = StyleSheet.create({
   },
   resultadoTxt: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontFamily: "Anta-Regular",
   },
   picker: {
     height: 50,
