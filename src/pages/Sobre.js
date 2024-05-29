@@ -1,20 +1,13 @@
-import { View, TouchableOpacity, Text, Image, ScrollView } from "react-native";
-// Estilização
-import { styles } from "../styles/Style";
-// Ícones
-import { AntDesign } from "@expo/vector-icons";
-// Gradiente
+import React from "react";
+import { View, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-// Fontes
+import { AntDesign } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
-
-// Componentes
-
+import { useNavigation } from "@react-navigation/native";
+import { styles } from "../styles/Style";
 import TextProps from "../components/TextProps";
 import TouchableOpacityProps from "../components/TouchableOpacityProps";
 import ImageProps from "../components/ImageProps";
-// Import Hook useNavigation
-import { useNavigation } from "@react-navigation/native";
 
 export default function Sobre() {
   const navigation = useNavigation();
@@ -25,6 +18,7 @@ export default function Sobre() {
   if (!fontsLoaded) {
     return undefined;
   }
+
   return (
     <LinearGradient
       colors={["#FFD7A9", "#FF8800"]}
@@ -48,12 +42,12 @@ export default function Sobre() {
           </View>
 
           <TextProps
-            Texto="Sobre a Profit Base"
-            TextStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
+            text="Sobre a Profit Base"
+            textStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
           />
           <TextProps
-            Texto="A Profit Base é uma calculadora de rentabilidade. Ele ajuda você a entender seus ganhos de forma simples, para que possa tomar decisões melhores sobre seus investimentos."
-            TextStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
+            text="A Profit Base é uma calculadora de rentabilidade. Ele ajuda você a entender seus ganhos de forma simples, para que possa tomar decisões melhores sobre seus investimentos."
+            textStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
           />
           <ImageProps
             ImageUri={require("../uploads/celular.png")}
@@ -65,8 +59,8 @@ export default function Sobre() {
             onPress={() => navigation.navigate("CalcCripto")}
           >
             <TextProps
-              Texto="Ir para a calculadora"
-              TextStyle={[styles.buttonText, { fontFamily: "Anta-Regular" }]}
+              text="Ir para a calculadora"
+              textStyle={[styles.buttonText, { fontFamily: "Anta-Regular" }]}
             />
           </TouchableOpacityProps>
           <AntDesign
@@ -76,8 +70,8 @@ export default function Sobre() {
             color="white"
           />
           <TextProps
-            Texto="Informações Autênticas e dados reais atualizados com base nos valores de mercado."
-            TextStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
+            text="Informações Autênticas e dados reais atualizados com base nos valores de mercado."
+            textStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
           />
         </View>
       </ScrollView>

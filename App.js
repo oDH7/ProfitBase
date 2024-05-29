@@ -8,10 +8,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./src/pages/Home";
 import Sobre from "./src/pages/Sobre";
 import CalcCripto from "./src/pages/CalcCripto";
+import Info from "./src/pages/CriptoInfo";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { Octicons } from "@expo/vector-icons";
 import { FontAwesome6 } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 // Cria uma instância de um navegador de pilha usando createNativeTabNavigator e a armazena na constante Tab.
 // Isso permite que você use esse navegador de pilha para definir a navegação em sua aplicação.
@@ -62,7 +64,7 @@ export default function App() {
           component={CalcCripto}
           options={{
             tabBarIcon: ({ color }) => {
-              return <FontAwesome size={25} color={color} name="bitcoin" />;
+              return <FontAwesome5 size={25} color={color} name="calculator" />;
             },
             headerShown: false,
             title: "",
@@ -77,6 +79,17 @@ export default function App() {
               return (
                 <FontAwesome6 size={25} color={color} name="people-group" />
               );
+            },
+            headerShown: false,
+            title: "",
+          }}
+        />
+        <Tab.Screen
+          name="Info"
+          component={Info}
+          options={{
+            tabBarIcon: ({ size, color }) => {
+              return <FontAwesome size={25} color={color} name="newspaper-o" />;
             },
             headerShown: false,
             title: "",

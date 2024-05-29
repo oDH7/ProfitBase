@@ -59,11 +59,37 @@ export const styles = StyleSheet.create({
   },
 
   cryptoContainer: {
-    width: "40%",
+    width: "80%",
     marginBottom: 20,
     marginTop: 50,
     flex: 1,
-    left: -150,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  cryptoItem: {
+    backgroundColor: "#FFCC80",
+    borderRadius: 10,
+    padding: 20,
+    marginBottom: 20,
+    width: "100%",
+    alignItems: "center",
+  },
+  cryptoName: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "white",
+  },
+  cryptoPrice: {
+    fontSize: 16,
+    color: "white",
+  },
+  cryptoMarketCap: {
+    fontSize: 14,
+    color: "white",
+  },
+  cryptoChange: {
+    fontSize: 14,
+    color: "white",
   },
   input: {
     margin: 20,
@@ -113,5 +139,15 @@ export const styles = StyleSheet.create({
   },
   cryptoinput: {
     flexDirection: "row",
+  },
+  cryptoinfoimg: {
+    width: 50,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  infoview: {
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

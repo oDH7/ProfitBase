@@ -40,7 +40,6 @@ export default function CalcCripto() {
   const [visible, setVisible] = useState(false);
   const [resultado, setResultado] = useState(0);
   const [control, setControl] = useState(controlProps);
-  const [selectedCrypto, setSelectedCrypto] = useState("ethereum");
   const [fontsLoaded] = useFonts({
     "Anta-Regular": require("../uploads/fonts/Anta-Regular.ttf"),
   });
@@ -48,50 +47,6 @@ export default function CalcCripto() {
   if (!fontsLoaded) {
     return undefined;
   }
-
-  // Cache para armazenar preços das criptomoedas
-  const priceCache = React.useRef({});
-
-  useEffect(() => {
-    fetchCryptoPrice(selectedCrypto);
-  }, [selectedCrypto]);
-
-  const fetchCryptoPrice = useCallback(async (cryptoId) => {
-    const now = Date.now();
-
-    // Verificar cache
-    if (
-      priceCache.current[cryptoId] &&
-      now - priceCache.current[cryptoId].timestamp < CACHE_DURATION
-    ) {
-      setValordecompra(priceCache.current[cryptoId].price.toString());
-      return;
-    }
-
-    try {
-      const response = await axios.get(
-        `https://api.coingecko.com/api/v3/simple/price?ids=${cryptoId}&vs_currencies=brl`
-      );
-      const price = response.data[cryptoId].brl;
-      setValordecompra(price.toString());
-
-      // Atualizar cache
-      priceCache.current[cryptoId] = {
-        price,
-        timestamp: now,
-      };
-    } catch (error) {
-      if (error.response && error.response.status === 429) {
-        Alert.alert(
-          "Muitas solicitações. Por favor, tente novamente mais tarde."
-        );
-      } else {
-        Alert.alert("Erro ao buscar o preço da criptomoeda");
-      }
-      console.error(error);
-      setValordecompra("");
-    }
-  }, []);
 
   const profit_loss = () => {
     if (valordecompra === "" || valordevenda === "" || investimento === "") {
@@ -144,15 +99,6 @@ export default function CalcCripto() {
         <Text style={[styles.text, { fontFamily: "Anta-Regular" }]}>
           Calcular Investimento (R$)
         </Text>
-        <Picker
-          selectedValue={selectedCrypto}
-          style={styles.picker}
-          onValueChange={(itemValue) => setSelectedCrypto(itemValue)}
-        >
-          <Picker.Item label="Ethereum" value="ethereum" />
-          <Picker.Item label="Bitcoin" value="bitcoin" />
-          <Picker.Item label="Solana" value="solana" />
-        </Picker>
 
         <TxtInputComponent
           txtplace="Preço de compra"
