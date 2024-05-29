@@ -93,35 +93,49 @@ export default function Home() {
           text="Bem-Vindo a Profit Base!"
           textStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
         />
-        <TextProps
-          text="Acompanhe os valores reais e atualizados das Cryptomoedas no painel abaixa, caso você queira fazer uma simulação de um investimento siga para nossa página da calculadora."
-          textStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
-        />
 
         <View style={styles.cryptoContainer}>
           {cryptoData.map((crypto) => (
             <View key={crypto.id} style={styles.cryptoItem}>
-              <Text style={styles.cryptoName}>{crypto.name}</Text>
-              <Text style={styles.cryptoPrice}>R${crypto.current_price}</Text>
-              <Text style={styles.cryptoMarketCap}>
+              <TextProps
+                textStyle={[styles.cryptoName, { fontFamily: "Anta-Regular" }]}
+              >
+                {crypto.name}
+              </TextProps>
+              <TextProps
+                textStyle={[styles.cryptoPrice, { fontFamily: "Anta-Regular" }]}
+              >
+                R${crypto.current_price}
+              </TextProps>
+              <TextProps
+                textStyle={[
+                  styles.cryptoMarketCap,
+                  { fontFamily: "Anta-Regular" },
+                ]}
+              >
                 Valor de Mercado: {formatMarketCap(crypto.market_cap)}
-              </Text>
-              <Text style={styles.cryptoChange}>
+              </TextProps>
+              <TextProps
+                textStyle={[
+                  styles.cryptoChange,
+                  { fontFamily: "Anta-Regular" },
+                ]}
+              >
                 Variação 24h:{" "}
                 {formatChangePercentage(crypto.price_change_percentage_24h)}
-              </Text>
+              </TextProps>
             </View>
           ))}
+          <TouchableOpacityProps
+            style={styles.button1}
+            onPress={() => navigation.navigate("CalcCripto")}
+          >
+            <TextProps
+              text="Ir para a calculadora"
+              textStyle={[styles.buttonText, { fontFamily: "Anta-Regular" }]}
+            />
+          </TouchableOpacityProps>
         </View>
-        <TouchableOpacityProps
-          style={styles.button1}
-          onPress={() => navigation.navigate("CalcCripto")}
-        >
-          <TextProps
-            text="Ir para a calculadora"
-            textStyle={[styles.buttonText, { fontFamily: "Anta-Regular" }]}
-          />
-        </TouchableOpacityProps>
       </View>
     </LinearGradient>
   );

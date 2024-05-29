@@ -150,4 +150,15 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  square2: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFCC80",
+    borderColor: "white",
+    borderWidth: 2,
+    borderRadius: 30,
+    width: 300,
+    height: 50,
+    margin: 30,
+  },
 });

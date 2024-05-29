@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, Text, Image, ScrollView } from "react-native";
+import { View, ScrollView, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
 import { useNavigation } from "@react-navigation/native";
-import { Picker } from "@react-native-picker/picker";
 import { styles } from "../styles/Style";
 import TextProps from "../components/TextProps";
 import TouchableOpacityProps from "../components/TouchableOpacityProps";
 import ImageProps from "../components/ImageProps";
+import PickerProps from "../components/PickerProps";
 import EthereumImage from "../uploads/ethereum.png";
-import BitcoinImage from "../uploads/bitcoin.png";
+import BitcoinImage from "../uploads/bitcointecla.png";
 import SolanaImage from "../uploads/solana.png";
 
 export default function Info() {
@@ -71,31 +71,35 @@ export default function Info() {
               />
             </TouchableOpacityProps>
           </View>
-          <Text style={[styles.text, { fontFamily: "Anta-Regular" }]}>
-            Crypto Info
-          </Text>
-          <Text style={[styles.text, { fontFamily: "Anta-Regular" }]}>
-            Descubra mais sobre as Cryptomoedas com as informações detalhadas de
-            cada uma.
-          </Text>
+          <TextProps
+            textStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
+            text="Crypto Info"
+          />
+          <TextProps
+            textStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
+            text="Descubra mais sobre as Cryptomoedas com as informações detalhadas de cada uma."
+          />
 
-          <Picker
-            style={styles.picker}
+          <PickerProps
             selectedValue={selectedCrypto}
             onValueChange={handlePickerChange}
-          >
-            <Picker.Item label="Ethereum" value="ethereum" />
-            <Picker.Item label="Bitcoin" value="bitcoin" />
-            <Picker.Item label="Solana" value="solana" />
-          </Picker>
+            items={[
+              { label: "Ethereum", value: "ethereum" },
+              { label: "Bitcoin", value: "bitcoin" },
+              { label: "Solana", value: "solana" },
+            ]}
+            pickerStyle={styles.picker}
+          />
           {cryptoInfo && (
             <View style={styles.infoview}>
-              <Text style={[styles.text, { fontFamily: "Anta-Regular" }]}>
-                {cryptoInfo.name}
-              </Text>
-              <Text style={[styles.text, { fontFamily: "Anta-Regular" }]}>
-                {cryptoInfo.description}
-              </Text>
+              <TextProps
+                textStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
+                text={cryptoInfo.name}
+              />
+              <TextProps
+                textStyle={[styles.text, { fontFamily: "Anta-Regular" }]}
+                text={cryptoInfo.description}
+              />
               <Image source={cryptoInfo.image} style={styles.cryptoinfoimg} />
             </View>
           )}

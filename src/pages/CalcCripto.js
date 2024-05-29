@@ -1,24 +1,13 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Modal,
-  ScrollView,
-  Image,
-  Dimensions,
-  StatusBar,
-  Alert,
-} from "react-native";
+import { View, Alert } from "react-native";
 import { styles } from "../styles/Style";
 import { useNavigation, useRoute } from "@react-navigation/native"; // Importa hooks de navegação
 import { Entypo } from "@expo/vector-icons"; // Importa ícones
-import axios from "axios"; // Importa axios para requisições HTTP (não usado aqui)
-import { Picker } from "@react-native-picker/picker"; // Importa Picker (não usado aqui)
-import React, { useState, useEffect, useCallback } from "react"; // Importa React e hooks
+import React, { useState } from "react"; // Importa React e hooks
 import { LinearGradient } from "expo-linear-gradient"; // Importa gradiente
 import { useFonts } from "expo-font"; // Importa carregamento de fontes
-import TxtInputComponent from "../components/TxtInputComponent"; // Importa componente de input customizado
-import TextProps from "../components/TextProps"; // Importa componente de texto customizado (não usado aqui)
+// Import Components
+import TxtInputComponent from "../components/TxtInputComponent";
+import TextProps from "../components/TextProps";
 import TouchableOpacityProps from "../components/TouchableOpacityProps";
 import ImageProps from "../components/ImageProps";
 
@@ -31,9 +20,8 @@ export default function CalcCripto() {
   const [valordevenda, setValordevenda] = useState(""); // Estado para valor de venda
   const [taxadecompra, setTaxadecompra] = useState(""); // Estado para taxa de compra
   const [taxadevenda, setTaxadevenda] = useState(""); // Estado para taxa de venda
-  const [visible, setVisible] = useState(false); // Estado para visibilidade (não usado aqui)
   const [resultado, setResultado] = useState(0); // Estado para resultado do cálculo
-  const [control, setControl] = useState(controlProps); // Estado de controle (não detalhado aqui)
+  const [control, setControl] = useState(controlProps); // Estado de controle
   const [fontsLoaded] = useFonts({
     "Anta-Regular": require("../uploads/fonts/Anta-Regular.ttf"), // Carrega fonte personalizada
   });
@@ -53,7 +41,6 @@ export default function CalcCripto() {
       taxadevenda -
       investimento; // Calcula lucro ou perda
     setResultado(calcProfitLoss); // Define o resultado
-    setVisible(true); // Mostra o resultado (não usado diretamente)
   };
 
   const calcularNovamente = () => {
@@ -63,7 +50,7 @@ export default function CalcCripto() {
     setTaxadecompra(""); // Limpa o campo taxa de compra
     setTaxadevenda(""); // Limpa o campo taxa de venda
     setResultado(0); // Reseta o resultado
-    setVisible(false); // Fecha o modal (não usado diretamente)
+
     setControl(true); // Reseta controle
 
     console.log("Investimento zerado: ", investimento);
@@ -135,15 +122,14 @@ export default function CalcCripto() {
           />
         </TouchableOpacityProps>
         <View style={styles.square}>
-          <Text
-            onPress={calcularNovamente}
-            style={[
+          <TextProps
+            textStyle={[
               styles.resultadoTxt,
               { color: resultado >= 0 ? "green" : "red" }, // Verde se positivo, vermelho se negativo
             ]}
-          >
-            R${resultado.toFixed(2)}
-          </Text>
+            text={`R$${resultado.toFixed(2)}`}
+            onPress={calcularNovamente}
+          />
         </View>
         <TouchableOpacityProps
           TouchStyle={styles.Touch}
