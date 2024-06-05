@@ -104,11 +104,6 @@ export const styles = StyleSheet.create({
     paddingLeft: 10,
     marginBottom: 20,
   },
-  buttonText: {
-    color: "white",
-    fontSize: 16,
-  },
-
   celularimg: {
     width: "100%",
     height: 500,
