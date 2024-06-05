@@ -83,20 +83,20 @@ export default function CalcCripto() {
         />
 
         <TxtInputComponent
-          txtplace="Preço de compra"
+          txtplace="Preço no momento da compra"
           value={valordecompra}
           changeText={setValordecompra}
           editable={false} // Campo não editável
         />
         <View style={styles.cryptoinput}>
           <TxtInputComponent
-            txtplace="Investimento"
+            txtplace="Valor Investido"
             value={investimento}
             changeText={setInvestimento}
           />
 
           <TxtInputComponent
-            txtplace="Preço de venda"
+            txtplace="Preço no momento da venda"
             value={valordevenda}
             changeText={setValordevenda}
           />
