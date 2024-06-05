@@ -34,8 +34,8 @@ export default function Home() {
         "https://api.coingecko.com/api/v3/coins/markets",
         {
           params: {
-            vs_currency: "brl", // Moeda em que queremos os preços
-            ids: "bitcoin,ethereum,solana", // Criptomoedas que queremos buscar
+            vs_currency: "brl", // Moeda em real
+            ids: "bitcoin,ethereum,solana", // Criptomoedas para buscar
           },
         }
       );
@@ -107,16 +107,22 @@ export default function Home() {
           {cryptoData.map((crypto) => (
             <View key={crypto.id} style={styles.cryptoItem}>
               <Text style={styles.cryptoName}>{crypto.name}</Text>
-              <Text style={styles.cryptoPrice}>R${crypto.current_price}</Text>
-              <Text style={styles.cryptoMarketCap}>
-                Valor de Mercado: {formatMarketCap(crypto.market_cap)}
+              {/* Nome da criptomoeda */}
+              <Text style={styles.cryptoPrice}>
+                R${crypto.current_price}
+              </Text>{" "}
+              {/* Preço atual da criptomoeda */}
+              <Text style={styles.MarketCap}>
+                Valor de Mercado: {formatMarketCap(crypto.market_cap)}{" "}
+                {/* Valor de mercado formatado */}
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={styles.cryptoChange}>Variação 24h: </Text>
                 <Text
                   style={getChangeStyle(crypto.price_change_percentage_24h)}
                 >
-                  {formatChangePercentage(crypto.price_change_percentage_24h)}
+                  {formatChangePercentage(crypto.price_change_percentage_24h)}{" "}
+                  {/* Variação da porcentagem formatada */}
                 </Text>
               </View>
             </View>

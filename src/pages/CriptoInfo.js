@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { View, ScrollView, Image } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import { useFonts } from "expo-font";
-import { useNavigation } from "@react-navigation/native";
+//
+import { LinearGradient } from "expo-linear-gradient"; // Gradiente
+import { useFonts } from "expo-font"; // Fontes
+import { useNavigation } from "@react-navigation/native"; // Navegação
 import { styles } from "../styles/Style";
+// Import Componentes
 import TextProps from "../components/TextProps";
 import TouchableOpacityProps from "../components/TouchableOpacityProps";
 import ImageProps from "../components/ImageProps";
@@ -14,12 +16,17 @@ import SolanaImage from "../uploads/solana.png";
 
 export default function Info() {
   const navigation = useNavigation();
+  // Carregar a fonte
   const [fontsLoaded] = useFonts({
     "Anta-Regular": require("../uploads/fonts/Anta-Regular.ttf"),
   });
-
+  // Controla qual criptomoeda está selecionada, por padrão Ethereum
   const [selectedCrypto, setSelectedCrypto] = useState("ethereum");
+
+  // Armazena as informações da criptomoeda selecionada
   const [cryptoInfo, setCryptoInfo] = useState(null);
+
+  // Contém informações sobre as criptomoedas
   const cryptoData = {
     ethereum: {
       name: "Ethereum",
@@ -40,12 +47,12 @@ export default function Info() {
       image: SolanaImage,
     },
   };
-
+  // Esta função é chamada quando é selecionado uma nova criptomoeda
   const handlePickerChange = (value) => {
     setSelectedCrypto(value);
     setCryptoInfo(cryptoData[value]);
   };
-
+  // Verifica se as fontes foram carregadas
   if (!fontsLoaded) {
     return null;
   }

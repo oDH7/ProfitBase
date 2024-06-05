@@ -1,22 +1,25 @@
 import React from "react";
 import { View, ScrollView } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import { AntDesign } from "@expo/vector-icons";
-import { useFonts } from "expo-font";
-import { useNavigation } from "@react-navigation/native";
+//
+import { LinearGradient } from "expo-linear-gradient"; // Gradiente
+import { AntDesign } from "@expo/vector-icons"; // Ícones
+import { useFonts } from "expo-font"; // Fontes
+import { useNavigation } from "@react-navigation/native"; // Navegação
 import { styles } from "../styles/Style";
+// Import components
 import TextProps from "../components/TextProps";
 import TouchableOpacityProps from "../components/TouchableOpacityProps";
 import ImageProps from "../components/ImageProps";
 
 export default function Sobre() {
   const navigation = useNavigation();
+  // Verifica se a fonte foi carregada
   const [fontsLoaded] = useFonts({
     "Anta-Regular": require("../uploads/fonts/Anta-Regular.ttf"),
   });
 
   if (!fontsLoaded) {
-    return undefined;
+    return undefined; // Espera o carregamento das fontes
   }
 
   return (

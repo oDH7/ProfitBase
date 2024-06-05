@@ -23,7 +23,7 @@ export default function CalcCripto() {
   const [resultado, setResultado] = useState(0); // Estado para resultado do cálculo
   const [control, setControl] = useState(controlProps); // Estado de controle
   const [fontsLoaded] = useFonts({
-    "Anta-Regular": require("../uploads/fonts/Anta-Regular.ttf"), // Carrega fonte personalizada
+    "Anta-Regular": require("../uploads/fonts/Anta-Regular.ttf"), // Carrega a fonte
   });
 
   if (!fontsLoaded) {
@@ -43,12 +43,13 @@ export default function CalcCripto() {
     setResultado(calcProfitLoss); // Define o resultado
   };
 
+  // Função para limpar os campos e recalcular
   const calcularNovamente = () => {
-    setValordecompra(""); // Limpa o campo valor de compra
-    setInvestimento(""); // Limpa o campo investimento
-    setValordevenda(""); // Limpa o campo valor de venda
-    setTaxadecompra(""); // Limpa o campo taxa de compra
-    setTaxadevenda(""); // Limpa o campo taxa de venda
+    setValordecompra("");
+    setInvestimento("");
+    setValordevenda("");
+    setTaxadecompra("");
+    setTaxadevenda("");
     setResultado(0); // Reseta o resultado
 
     setControl(true); // Reseta controle
@@ -86,7 +87,6 @@ export default function CalcCripto() {
           txtplace="Preço no momento da compra"
           value={valordecompra}
           changeText={setValordecompra}
-          editable={false} // Campo não editável
         />
         <View style={styles.cryptoinput}>
           <TxtInputComponent
