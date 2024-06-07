@@ -108,21 +108,18 @@ export default function Home() {
             <View key={crypto.id} style={styles.cryptoItem}>
               <Text style={styles.cryptoName}>{crypto.name}</Text>
               {/* Nome da criptomoeda */}
-              <Text style={styles.cryptoPrice}>
-                R${crypto.current_price}
-              </Text>{" "}
+              <Text style={styles.cryptoPrice}>R${crypto.current_price}</Text>
               {/* Preço atual da criptomoeda */}
               <Text style={styles.MarketCap}>
-                Valor de Mercado: {formatMarketCap(crypto.market_cap)}{" "}
-                {/* Valor de mercado formatado */}
+                Valor de Mercado: {formatMarketCap(crypto.market_cap)}
               </Text>
+              {/* Valor de mercado formatado */}
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={styles.cryptoChange}>Variação 24h: </Text>
                 <Text
                   style={getChangeStyle(crypto.price_change_percentage_24h)}
                 >
-                  {formatChangePercentage(crypto.price_change_percentage_24h)}{" "}
-                  {/* Variação da porcentagem formatada */}
+                  {formatChangePercentage(crypto.price_change_percentage_24h)}
                 </Text>
               </View>
             </View>
@@ -131,10 +128,9 @@ export default function Home() {
             style={styles.button1}
             onPress={() => navigation.navigate("CalcCripto")}
           >
-            <TextProps
-              text="Ir para a calculadora"
-              textStyle={[styles.buttonText, { fontFamily: "Anta-Regular" }]}
-            />
+            <Text style={[styles.buttonText, { fontFamily: "Anta-Regular" }]}>
+              Ir para a calculadora
+            </Text>
           </TouchableOpacityProps>
         </View>
       </View>

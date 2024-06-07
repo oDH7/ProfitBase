@@ -21,7 +21,7 @@ export default function Info() {
     "Anta-Regular": require("../uploads/fonts/Anta-Regular.ttf"),
   });
   // Controla qual criptomoeda está selecionada, por padrão Ethereum
-  const [selectedCrypto, setSelectedCrypto] = useState("ethereum");
+  const [selectedCrypto, setSelectedCrypto] = useState("bitcoin");
 
   // Armazena as informações da criptomoeda selecionada
   const [cryptoInfo, setCryptoInfo] = useState(null);
