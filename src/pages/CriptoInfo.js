@@ -23,9 +23,6 @@ export default function Info() {
   // Controla qual criptomoeda está selecionada, por padrão Ethereum
   const [selectedCrypto, setSelectedCrypto] = useState("bitcoin");
 
-  // Armazena as informações da criptomoeda selecionada
-  const [cryptoInfo, setCryptoInfo] = useState(null);
-
   // Contém informações sobre as criptomoedas
   const cryptoData = {
     ethereum: {

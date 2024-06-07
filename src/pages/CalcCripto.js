@@ -12,8 +12,6 @@ import TouchableOpacityProps from "../components/TouchableOpacityProps";
 import ImageProps from "../components/ImageProps";
 
 export default function CalcCripto() {
-  const route = useRoute(); // Obtém a rota atual
-  const { controlProps } = route.params; // Obtém parâmetros da rota
   const navigation = useNavigation(); // Obtém a navegação
   const [valordecompra, setValordecompra] = useState(""); // Estado para valor de compra
   const [investimento, setInvestimento] = useState(""); // Estado para investimento
@@ -21,7 +19,7 @@ export default function CalcCripto() {
   const [taxadecompra, setTaxadecompra] = useState(""); // Estado para taxa de compra
   const [taxadevenda, setTaxadevenda] = useState(""); // Estado para taxa de venda
   const [resultado, setResultado] = useState(0); // Estado para resultado do cálculo
-  const [control, setControl] = useState(controlProps); // Estado de controle
+
   const [fontsLoaded] = useFonts({
     "Anta-Regular": require("../uploads/fonts/Anta-Regular.ttf"), // Carrega a fonte
   });
@@ -51,8 +49,6 @@ export default function CalcCripto() {
     setTaxadecompra("");
     setTaxadevenda("");
     setResultado(0); // Reseta o resultado
-
-    setControl(true); // Reseta controle
 
     console.log("Investimento zerado: ", investimento);
   };
