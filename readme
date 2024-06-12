@@ -1,11 +1,11 @@
-# ExemploSimples
 
 ## Descrição
-Um projeto simples de exemplo para demonstrar a estrutura básica de um README.
+- Projeto Proftbase calculadora de cripto moeda feita para calcular ganhos e perdas para traders iniciando
+
 
 ## Instalação
 ### Pré-requisitos
-- Python 3.x
+- Node js
 
 ### Passos para instalação
 1. Clone o repositório:
@@ -15,26 +15,32 @@ Um projeto simples de exemplo para demonstrar a estrutura básica de um README.
    cd Proftbase
 
 3. Instale as dependências:
-   Node.js
-- Expo CLI (caso não tenha o Expo CLI instalado, você pode instalá-lo com o comando `npm install -g expo-cli`)
+npm install -g expo-cli
+npx create-expo-app --template
+cd nomedoseuprojeto
+npx expo start
+npx expo start --tunnel
+npx expo install react-native-web react-dom @expo/metro-runtime
+npx expo start --web
+npm install @react-navigation/native
+npx expo install react-native-screens react-native-safe-area-context
+npm install @react-navigation/native-stack
+npm install @react-navigation/bottom-tabs
+npm install @react-navigation/drawer
+npx expo install react-native-gesture-handler react-native-reanimated
+npm install @expo/vector-icons
+expo install
+
+
 
 
 ## Uso
 ### Exemplos de uso
 Para rodar o script principal, use:
-   expo start
+   expo start --tunnel 
 
 
-## Contribuição
-Para contribuir, siga estes passos:
-1. Faça um fork do repositório.
-2. Crie uma branch (`git checkout -b feature/novaFuncionalidade`).
-3. Commit suas alterações (`git commit -m 'Adiciona nova funcionalidade'`).
-4. Faça o push para a branch (`git push origin feature/novaFuncionalidade`).
-5. Abra um Pull Request.
 
-## Licença
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## Contato
-- Guilherme Restio / guilhermerestio@hotmail.com
+
+
