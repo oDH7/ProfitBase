@@ -1,0 +1,40 @@
+# ExemploSimples
+
+## Descrição
+Um projeto simples de exemplo para demonstrar a estrutura básica de um README.
+
+## Instalação
+### Pré-requisitos
+- Python 3.x
+
+### Passos para instalação
+1. Clone o repositório:
+   git clone https://github.com/oDH7/ProfitBase.git
+
+2. Navegue até o diretório do projeto:
+   cd Proftbase
+
+3. Instale as dependências:
+   Node.js
+- Expo CLI (caso não tenha o Expo CLI instalado, você pode instalá-lo com o comando `npm install -g expo-cli`)
+
+
+## Uso
+### Exemplos de uso
+Para rodar o script principal, use:
+   expo start
+
+
+## Contribuição
+Para contribuir, siga estes passos:
+1. Faça um fork do repositório.
+2. Crie uma branch (`git checkout -b feature/novaFuncionalidade`).
+3. Commit suas alterações (`git commit -m 'Adiciona nova funcionalidade'`).
+4. Faça o push para a branch (`git push origin feature/novaFuncionalidade`).
+5. Abra um Pull Request.
+
+## Licença
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## Contato
+- Guilherme Restio / guilhermerestio@hotmail.com
