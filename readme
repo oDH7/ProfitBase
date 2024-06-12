@@ -1,0 +1,46 @@
+
+## Descrição
+- Projeto Proftbase calculadora de cripto moeda feita para calcular ganhos e perdas para traders iniciando
+
+
+## Instalação
+### Pré-requisitos
+- Node env
+
+### Passos para instalação
+1. Clone o repositório:
+   git clone https://github.com/oDH7/ProfitBase.git
+
+2. Navegue até o diretório do projeto:
+   cd Proftbase
+
+3. Instale as dependências:
+
+
+npx expo install @react-native-picker/picker
+expo install expo-linear-gradient
+expo axos (para o uso da API)
+npx expo install react-native-web react-dom @expo/metro-runtime
+npx expo start --web
+npm install @react-navigation/native
+npx expo install react-native-screens react-native-safe-area-context
+npm install @react-navigation/native-stack
+npm install @react-navigation/bottom-tabs
+npm install @react-navigation/drawer
+npx expo install react-native-gesture-handler react-native-reanimated
+npm install @expo/vector-icons
+expo install
+np expo install expo-font
+
+
+
+## Uso
+### Exemplos de uso
+Para rodar o script principal, use:
+   expo start --tunnel 
+
+
+
+
+
+
