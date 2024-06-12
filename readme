@@ -5,7 +5,7 @@
 
 ## Instalação
 ### Pré-requisitos
-- Node js
+- Node env
 
 ### Passos para instalação
 1. Clone o repositório:
@@ -15,11 +15,7 @@
    cd Proftbase
 
 3. Instale as dependências:
-npm install -g expo-cli
-npx create-expo-app --template
-cd nomedoseuprojeto
-npx expo start
-npx expo start --tunnel
+
 npx expo install react-native-web react-dom @expo/metro-runtime
 npx expo start --web
 npm install @react-navigation/native
