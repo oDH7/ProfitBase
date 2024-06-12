@@ -24,7 +24,7 @@ export default function Sobre() {
 
   return (
     <LinearGradient
-      colors={["#FFD7A9", "#FF8800"]}
+      colors={["#FFD7A9", "#FF8800"]} // ele permite um degrade para a cor e deixar o site mais moderno, e para usar ele precisou do uso dsa biblioteca expo-LinearGradient
       style={styles.telas}
       start={{ x: 0.5, y: 0 }}
       end={{ x: 0.5, y: 1 }}
