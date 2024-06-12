@@ -16,6 +16,10 @@
 
 3. Instale as dependências:
 
+
+npx expo install @react-native-picker/picker
+expo install expo-linear-gradient
+expo axos (para o uso da API)
 npx expo install react-native-web react-dom @expo/metro-runtime
 npx expo start --web
 npm install @react-navigation/native
